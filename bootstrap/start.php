@@ -25,10 +25,7 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(array(
-
-	'development' => array('zeus'),     // Tijdelijk
-    'live' => array('HP-DL320-UBUNTU')  // Server Jonas
-
+	'live' => array('APOLLO'),
 ));
 
 /*
