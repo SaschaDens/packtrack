@@ -49,6 +49,8 @@
     <div class="jumbotron"></div>
     <div class="content">
         <div class="container">
+            <h2>@yield('post-title')</h2>
+
             @if(Session::get('errors'))
             <div class="alert alert-danger fade in">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

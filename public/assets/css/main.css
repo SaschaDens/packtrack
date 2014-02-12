@@ -68,3 +68,8 @@ footer{
     background: #2c3e50;
     margin-right: 20px;
 }
+
+.nav>li>a:hover, .nav>li>a:focus
+{
+    background: none;
+}
