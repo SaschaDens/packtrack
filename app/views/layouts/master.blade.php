@@ -31,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ URL::to('/') }}">
                     {{ HTML::image('assets/img/logo.png', 'Pack And Track') }}
                 </a>
             </div>
@@ -41,6 +41,7 @@
                     <li class="active"><a href="{{ URL::to('/') }}">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Help</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -48,6 +49,18 @@
     <div class="jumbotron"></div>
     <div class="content">
         <div class="container">
+            @if(Session::get('errors'))
+            <div class="alert alert-danger fade in">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <strong>Error:</strong> a few error(s) occured.
+                <ul>
+                    @foreach ($errors->all('<li>:message</li>') as $error)
+                    {{ $error }}
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            
             @yield('content')
         </div>
     </div>
