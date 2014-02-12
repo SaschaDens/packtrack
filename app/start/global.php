@@ -80,4 +80,6 @@ App::down(function()
 
 require app_path().'/filters.php';
 
+require 'errors.php';
 require 'macros.php';
+

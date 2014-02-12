@@ -107,8 +107,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
-        'Way\Generators\GeneratorsServiceProvider'
-
+        'Way\Generators\GeneratorsServiceProvider',
+        'Packtrack\Generator\GenerateServiceProvider'
 	),
 
 	/*
@@ -174,6 +174,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+
+        'Generate'        => 'Packtrack\Generator\GenerateService',
 
 	),
 

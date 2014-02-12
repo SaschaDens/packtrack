@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder {
             'last_name'     =>  'dens',
             'email'         =>  'sascha.dens@telenet.be',
             'password'      =>  'dens',
-            'activation_key'    => '123456789',
+            'activation_key'    => Generate::activation_key(),
             'country'       =>  'Belgium',
             'city'          =>  $faker->city,
             'postal_code'   =>  '2260',
@@ -22,21 +22,21 @@ class UsersTableSeeder extends Seeder {
             'phone'         =>  $faker->phoneNumber
         ));
 
-        foreach(range(1, 20) as $index)
+        /*foreach(range(1, 20) as $index)
         {
             User::create(array(
                 'first_name'    =>  $faker->firstName,
                 'last_name'     =>  $faker->lastName,
                 'email'         =>  $faker->email,
                 'password'      =>  'Yey',
-                'activation_key'    => '123456789',
+                'activation_key'    => Generate::activation_key(),
                 'country'       =>  $faker->country,
                 'city'          =>  $faker->city,
                 'postal_code'   =>  $faker->postcode,
                 'address'       => $faker->address,
                 'phone'         =>  $faker->phoneNumber
             ));
-        }
+        }//*/
 
 		// Uncomment the below to run the seeder
 		// DB::table('users')->insert($users);

@@ -49,7 +49,9 @@
     <div class="jumbotron"></div>
     <div class="content">
         <div class="container">
-            <h2>@yield('post-title')</h2>
+            <div class="page-header">
+                <h2>@yield('post-title')</h2>
+            </div>
 
             @if(Session::get('errors'))
             <div class="alert alert-danger fade in">

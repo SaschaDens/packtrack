@@ -78,3 +78,15 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+/*
+|--------------------------------------------------------------------------
+| Cache Filter
+|--------------------------------------------------------------------------
+|
+| This filter will cache the output into a key "route_{url}" for 60 minutes
+|
+*/
+
+Route::filter('fetch', 'Packtrack\Filters\CacheFilter@fetch');
+Route::filter('put', 'Packtrack\Filters\CacheFilter@put');
