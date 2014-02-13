@@ -74,6 +74,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 
     public function setPasswordAttribute($value){
         $this->attributes['password'] = Hash::make($value);
+        // Setting Activation Key
+        $this->attributes['activation_key'] = Generate::activation_key();
     }
-
 }

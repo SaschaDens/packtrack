@@ -39,32 +39,32 @@
             <hr/>
             <h2>Sending details</h2>
             <div class="form-group">
-                {{ Form::text('address', null, array('class' => 'form-control input-lg', 'placeholder' => 'Address', 'tabindex' => '10')) }}
+                {{ Form::text('address', null, array('class' => 'form-control input-lg', 'placeholder' => 'Address', 'tabindex' => '6')) }}
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-6">
                     <div class="form-group">
-                        {{ Form::text('city', null, array('class' => 'form-control input-lg', 'placeholder' => 'City', 'tabindex' => '8')) }}
+                        {{ Form::text('city', null, array('class' => 'form-control input-lg', 'placeholder' => 'City', 'tabindex' => '7')) }}
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <div class="form-group">
-                        {{ Form::text('postal_code', null, array('class' => 'form-control input-lg', 'placeholder' => 'Postal', 'tabindex' => '9')) }}
+                        {{ Form::text('postal_code', null, array('class' => 'form-control input-lg', 'placeholder' => 'Postal', 'tabindex' => '8')) }}
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                {{ Form::text('country', null, array('class' => 'form-control input-lg', 'placeholder' => 'Country', 'tabindex' => '10')) }}
+                {{ Form::text('country', null, array('class' => 'form-control input-lg', 'placeholder' => 'Country', 'tabindex' => '9')) }}
             </div>
 
             <hr/>
 
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    {{ Form::submit('Register', array('class' => 'btn btn-primary btn-block btn-lg', 'tabindex' => '6')) }}
+                    {{ Form::submit('Register', array('class' => 'btn btn-primary btn-block btn-lg', 'tabindex' => '10')) }}
                 </div>
                 <div class="col-xs-12 col-md-6">
-                    {{ Form::button('Sign In', array('class' => 'btn btn-success btn-block btn-lg', 'tabindex' => '7')) }}
+                    {{ Form::button('Sign In', array('class' => 'btn btn-success btn-block btn-lg', 'tabindex' => '11')) }}
                 </div>
             </div>
         {{ Form::close() }}

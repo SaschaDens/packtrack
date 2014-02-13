@@ -1,5 +1,9 @@
 <?php
-Route::get('/', 'HomeController@index');
+
+Route::get('/', function(){
+    return gethostname();
+});
+//Route::get('/', 'HomeController@index');
 
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 Route::get('logout', 'SessionsController@destroy');
@@ -8,9 +12,7 @@ Route::resource('sessions', 'SessionsController', array('only' => array('create'
 Route::get('mail', function(){
     $user = User::find(1);
     $mail = new Packtrack\Mailers\UserMailer();
-
     $mail->welcome($user);
-
     return "Mail send";
 });
 
