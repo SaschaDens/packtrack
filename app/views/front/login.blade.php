@@ -7,7 +7,15 @@
 		{{ Form::open(array('route' => 'sessions.store', 'role' => 'form')) }}
 			{{ Form::bt_text('email', null, null, array('class' => 'input-lg', 'placeholder' => 'Email Address')) }}
 			{{ Form::bt_password("password", null, array('class' => 'input-lg', 'placeholder' => 'Password')) }}
-			{{ Form::bt_button('Login', array('class' => 'btn-lg btn-success')) }}
+
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    {{ Form::submit('Login', array('class' => 'btn btn-primary btn-block btn-lg', 'tabindex' => '6')) }}
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    {{ Form::button('Register', array('class' => 'btn btn-success btn-block btn-lg', 'tabindex' => '7')) }}
+                </div>
+            </div>
 		{{ Form::close() }}
 	</div>
 @stop

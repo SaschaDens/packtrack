@@ -22,7 +22,7 @@
     </script>
 </head>
 <body>
-    <header class="navbar navbar-fixed-top">
+    <header class="navbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,7 +46,6 @@
             </div><!--/.nav-collapse -->
         </div>
     </header>
-    <div class="jumbotron"></div>
     <div class="content">
         <div class="container">
             <div class="page-header">

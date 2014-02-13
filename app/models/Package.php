@@ -1,6 +1,6 @@
 <?php
 
-class Package extends Eloquent {
+class Package extends BaseModel {
 	protected $guarded = array();
 
 	public static $rules = array();

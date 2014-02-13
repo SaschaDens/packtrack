@@ -18,8 +18,7 @@ class UsersTableSeeder extends Seeder {
             'country'       =>  'Belgium',
             'city'          =>  $faker->city,
             'postal_code'   =>  '2260',
-            'address'       =>  $faker->address,
-            'phone'         =>  $faker->phoneNumber
+            'address'       =>  $faker->address
         ));
 
         /*foreach(range(1, 20) as $index)
@@ -33,8 +32,7 @@ class UsersTableSeeder extends Seeder {
                 'country'       =>  $faker->country,
                 'city'          =>  $faker->city,
                 'postal_code'   =>  $faker->postcode,
-                'address'       => $faker->address,
-                'phone'         =>  $faker->phoneNumber
+                'address'       => $faker->address
             ));
         }//*/
 
