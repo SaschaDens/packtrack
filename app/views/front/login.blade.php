@@ -10,10 +10,10 @@
 
             <div class="row">
                 <div class="col-xs-12 col-md-6">
-                    {{ Form::submit('Login', array('class' => 'btn btn-primary btn-block btn-lg', 'tabindex' => '6')) }}
+                    {{ Form::submit('Login', array('class' => 'btn btn-primary btn-block btn-lg', 'tabindex' => '3')) }}
                 </div>
                 <div class="col-xs-12 col-md-6">
-                    {{ Form::button('Register', array('class' => 'btn btn-success btn-block btn-lg', 'tabindex' => '7')) }}
+                    {{ link_to_action('UsersController@index', 'Register', null, array('class' => 'btn btn-success btn-block btn-lg', 'tabindex' => '4')) }}
                 </div>
             </div>
 		{{ Form::close() }}

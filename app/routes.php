@@ -1,9 +1,6 @@
 <?php
 
-Route::get('/', function(){
-    return gethostname();
-});
-//Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 Route::get('logout', 'SessionsController@destroy');

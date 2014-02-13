@@ -3,7 +3,7 @@
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends BaseModel implements UserInterface, RemindableInterface {
+class User extends Eloquent implements UserInterface, RemindableInterface {
 
     protected $fillable = array(
         'first_name',
@@ -30,7 +30,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password');
 
-    public static $rules = array(
+    public static $registration_rules = array(
         'first_name'            =>  'required',
         'last_name'             =>  'required',
         'email'                 =>  'required|email|unique:users',
@@ -71,6 +71,11 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
+
+    public function scopeActivation($query, $type)
+    {
+        return $query->whereActivation_key($type);
+    }
 
     public function setPasswordAttribute($value){
         $this->attributes['password'] = Hash::make($value);

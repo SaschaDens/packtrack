@@ -1,13 +1,16 @@
 <?php
 
 use Packtrack\Mailers\UserMailer;
+use Packtrack\Services\UserCreatorService;
 
 class UsersController extends BaseController {
 
     protected $mailer;
-    public function __construct(UserMailer $mailer)
+    protected $userCreator;
+    public function __construct(UserMailer $mailer, UserCreatorService $userCreator)
     {
         $this->mailer = $mailer;
+        $this->userCreator = $userCreator;
     }
 
 
@@ -38,7 +41,16 @@ class UsersController extends BaseController {
 	 */
 	public function store()
 	{
-		$user = new User(Input::all());
+        try
+        {
+            $this->userCreator->make(Input::all());
+        } catch(Packtrack\Validators\ValidationException $e)
+        {
+            return Redirect::back()->withInput()->withErrors($e->getErrors());
+        }
+		/*$user = new User(Input::all());
+
+
 
         if( ! $user->save())
         {
@@ -47,6 +59,7 @@ class UsersController extends BaseController {
 
         $this->mailer->welcome($user);
         return Redirect::action('SessionsController@create')->withSuccess('An email has been sended. Please confirm you account.');
+		//*/
 	}
 
 	/**
@@ -57,7 +70,16 @@ class UsersController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('users.show');
+        $registration = User::Activation($id)->first();
+        if(!$registration)
+        {
+            return Redirect::action('SessionsController@create')->withErrors('Incorrect validation key. If this problem persists contact administrator');
+        }
+
+        // Update User ID
+        $registration->active = 1;
+        $registration->save();
+        return Redirect::action('SessionsController@create')->withSuccess('Your account has been activated. You can login now.');
 	}
 
 	/**

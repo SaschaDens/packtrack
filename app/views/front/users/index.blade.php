@@ -64,7 +64,7 @@
                     {{ Form::submit('Register', array('class' => 'btn btn-primary btn-block btn-lg', 'tabindex' => '10')) }}
                 </div>
                 <div class="col-xs-12 col-md-6">
-                    {{ Form::button('Sign In', array('class' => 'btn btn-success btn-block btn-lg', 'tabindex' => '11')) }}
+                    {{ link_to_action('SessionsController@create', 'Sign in', null, array('class' => 'btn btn-success btn-block btn-lg', 'tabindex' => '11')) }}
                 </div>
             </div>
         {{ Form::close() }}
