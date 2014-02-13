@@ -1,8 +1,17 @@
 <?php
 
+use Packtrack\Mailers\UserMailer;
+
 class UsersController extends BaseController {
 
-	/**
+    protected $mailer;
+    public function __construct(UserMailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }
+
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -19,7 +28,7 @@ class UsersController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('users.create');
+        return View::make('front.users.create');
 	}
 
 	/**
@@ -29,7 +38,15 @@ class UsersController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$user = new User(Input::all());
+
+        if( ! $user->save())
+        {
+            return Redirect::back()->withInput()->withErrors($user->getErrors());
+        }
+
+        $this->mailer->welcome($user);
+        return Redirect::action('SessionsController@create')->withSuccess('An email has been sended. Please confirm you account.');
 	}
 
 	/**

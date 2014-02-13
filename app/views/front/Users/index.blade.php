@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <div class="form-group">
-                        {{ Form::text('postal', null, array('class' => 'form-control input-lg', 'placeholder' => 'Postal', 'tabindex' => '9')) }}
+                        {{ Form::text('postal_code', null, array('class' => 'form-control input-lg', 'placeholder' => 'Postal', 'tabindex' => '9')) }}
                     </div>
                 </div>
             </div>

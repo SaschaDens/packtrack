@@ -19,7 +19,7 @@ class BaseModel extends Eloquent {
 
         if($validator->fails())
         {
-            $this->errors = $validator-messages();
+            $this->errors = $validator->messages();
             return false;
         }
 
