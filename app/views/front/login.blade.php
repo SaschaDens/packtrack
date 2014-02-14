@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('title', 'Login')
+
+
 @section('post-title', 'Customer Login')
 
 @section('content')

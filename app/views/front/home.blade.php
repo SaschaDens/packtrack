@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Pack And Track')
+
 @section('content')
     <div class="page-header">
         <h2>Home</h2>

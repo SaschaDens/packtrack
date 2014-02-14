@@ -108,7 +108,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
         'Way\Generators\GeneratorsServiceProvider',
-        'Packtrack\Generator\GenerateServiceProvider'
+        'Packtrack\Generator\GenerateServiceProvider',
+        'Dinesh\Barcode\BarcodeServiceProvider'
 	),
 
 	/*

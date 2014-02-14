@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+
+@section('title', 'About')
+
 @section('content')
 <article>
     <h2>About</h2>

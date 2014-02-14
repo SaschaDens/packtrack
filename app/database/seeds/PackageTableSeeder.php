@@ -13,7 +13,7 @@ class PackageTableSeeder extends Seeder {
             'to_city'       =>  'Westerlo',
             'to_Address'    =>  'Stekelbesstraat 10',
             'to_postalcode' =>  '2260',
-            'tracking_code' =>  Generate::tracking_key()
+            'tracking_code' =>  '4PKJKVJ826057'
         ));
 
 		// Uncomment the below to run the seeder

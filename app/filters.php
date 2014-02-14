@@ -79,6 +79,17 @@ Route::filter('csrf', function()
 	}
 });
 
+
+Route::filter('isActivated', function(){
+    $level = Auth::user()->active;
+
+    if(!Auth::guest() and $level == 0)
+    {
+        Auth::logout();
+        return Redirect::to('login')->withErrors('Your account is not validated yet');
+    }
+});
+
 /*
 |--------------------------------------------------------------------------
 | Cache Filter

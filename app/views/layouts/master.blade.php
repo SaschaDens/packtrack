@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'Pack And Track')</title>
+    <title>@yield('title', 'Pack And Track ')</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,13 +44,13 @@
                         {{ link_to_action('HomeController@about', 'About') }}
                     </li>
                     <li class="{{ set_active('contact') }}">
-                        <a href="#contact">Contact</a>
+                        <a href="contact">Contact</a>
                     </li>
                     <li class="{{ set_active('dashboard') }}">
                         <a href="#contact">Packages</a>
                     </li>
-                    <li class="{{ set_active('contact') }}">
-                        <a href="#contact">Help</a>
+                    <li class="{{ set_active('register') }}{{ set_active('login') }}">
+                        <a href="login">Login</a>
                     </li>
                 </ul>
             </div><!--/.nav-collapse -->
@@ -70,7 +70,6 @@
             @if(Session::get('errors'))
             <div class="alert alert-danger fade in">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <strong>Error:</strong> a few error(s) occured.
                 <ul>
                     @foreach ($errors->all('<li>:message</li>') as $error)
                     {{ $error }}

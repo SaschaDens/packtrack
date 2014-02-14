@@ -20,6 +20,8 @@ class CreatePackageTable extends Migration {
             $table->string('to_address');
             $table->string('to_postalcode');
             $table->string('tracking_code');
+            $table->string('reciever_mail')->nullable();
+            $table->string('description')->nullable();
 			$table->timestamps();
 		});
 	}

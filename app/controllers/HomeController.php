@@ -10,5 +10,9 @@ class HomeController extends BaseController {
     {
         return View::make('front.about');
     }
+    public function contact()
+    {
+        return View::make('front.contact');
+    }
 
 }
