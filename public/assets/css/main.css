@@ -24,8 +24,18 @@ header .active {
 }
 
 header {
-	background: #3498db;
-
+    background-image: -webkit-gradient(
+        linear,
+        right top,
+        left bottom,
+        color-stop(0, #3498DB),
+        color-stop(1, #2980B9)
+    );
+    background-image: -o-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
+    background-image: -moz-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
+    background-image: -webkit-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
+    background-image: -ms-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
+    background-image: linear-gradient(to left bottom, #3498DB 0%, #2980B9 100%);
 }
 .navbar{
     margin: 0px;

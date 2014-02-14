@@ -1,11 +1,14 @@
 <?php
-
+use \Packtrack\Services\PackageCreatorService;
 class PackageController extends BaseController {
 
-    function __construct()
+    protected $packageCreator;
+    function __construct(PackageCreatorService $packageCreator)
     {
         $this->beforeFilter('auth');
         $this->beforeFilter('isActivated');
+
+        $this->packageCreator = $packageCreator;
     }
 
 	/**
@@ -35,7 +38,15 @@ class PackageController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+        try
+        {
+            $this->packageCreator->make(Input::all());
+        } catch(Packtrack\Validators\ValidationException $e)
+        {
+            return Redirect::back()->withInput()->withErrors($e->getErrors());
+        }
+
+        //return Redirect::action('SessionsController@create')->withSuccess('An email has been sended. Please confirm you account.');
 	}
 
 	/**

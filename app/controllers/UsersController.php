@@ -31,7 +31,7 @@ class UsersController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('front.users.create');
+        //return View::make('front.users.create');
 	}
 
 	/**
@@ -48,18 +48,8 @@ class UsersController extends BaseController {
         {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }
-		/*$user = new User(Input::all());
 
-
-
-        if( ! $user->save())
-        {
-            return Redirect::back()->withInput()->withErrors($user->getErrors());
-        }
-
-        $this->mailer->welcome($user);
         return Redirect::action('SessionsController@create')->withSuccess('An email has been sended. Please confirm you account.');
-		//*/
 	}
 
 	/**
