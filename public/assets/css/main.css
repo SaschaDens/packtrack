@@ -25,6 +25,11 @@ header .active {
 
 header {
 	background: #3498db;
+
+}
+.navbar{
+    margin: 0px;
+    border-radius:0px;
 }
 
 header h1{
@@ -32,15 +37,17 @@ header h1{
 }
 
 header .navbar-brand{
-	zoom: 0.6;
+	zoom: 0.8;
     height: 0;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
 }
 
 header .container {
-	padding: 20px 0;
+	padding: 0px 0;
+    padding-left: 10px;
 	position: relative;
-    margin: 10px auto;
+    margin: 0px auto;
+
 }
 
 header nav li {
@@ -48,8 +55,18 @@ header nav li {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 25px;
 	line-height: 100px;
-	padding-right: 20px;
+	padding-right: 0px;
 }
+
+.nav {
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    padding-top: 35px;
+    padding-right: 20px;
+}
+
+
 
 footer{
 	padding: 40px;
@@ -61,7 +78,8 @@ footer{
 }
 
 .content article{
-	border-bottom: 4px solid #eee;
+    padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
 }
 
 .navbar-toggle {

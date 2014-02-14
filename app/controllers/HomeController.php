@@ -6,5 +6,9 @@ class HomeController extends BaseController {
 	{
 		return View::make('front.home');
 	}
+    public function about()
+    {
+        return View::make('front.about');
+    }
 
 }

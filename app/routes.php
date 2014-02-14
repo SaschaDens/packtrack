@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'HomeController@index');
+Route::get('about', 'HomeController@about');
 
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 Route::get('logout', 'SessionsController@destroy');
@@ -13,6 +14,9 @@ Route::get('mail', function(){
     return "Mail send";
 });
 
-Route::resource('register', 'UsersController');
+// API ANDROID
+Route::get('api', 'ApiController@index');
+Route::get('api/tracking/{tracking_key}', 'ApiController@getTracking');
 
+Route::resource('register', 'UsersController');
 Route::resource('dashboard', 'DashboardController@index');

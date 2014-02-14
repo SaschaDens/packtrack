@@ -21,7 +21,8 @@
 		],
         "psr-0": {
             "Packtrack": "app/"
-        }
+        },
+        "files":  ["app/helpers.php"]
 	},
 	"scripts": {
 		"post-install-cmd": [

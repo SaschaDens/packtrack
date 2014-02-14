@@ -36,7 +36,7 @@ class SessionsController extends \BaseController {
 				'password' => $input['password']
 			));
 
-			if($attempt) return Redirect::intended('admin');
+			if($attempt) return Redirect::intended('dashboard');
 
 			return Redirect::to('login')->withErrors('Incorrect Credentials')->withInput();;
 		};

@@ -70,16 +70,22 @@ class UsersController extends BaseController {
 	 */
 	public function show($id)
 	{
-        $registration = User::Activation($id)->first();
-        if(!$registration)
+        if(strlen($id) == 20)
         {
-            return Redirect::action('SessionsController@create')->withErrors('Incorrect validation key. If this problem persists contact administrator');
+            $registration = User::Activation($id)->first();
+            if(!$registration)
+            {
+                return Redirect::action('SessionsController@create')->withErrors('Incorrect validation key. If this problem persists contact administrator');
+            }
+
+            // Update User ID
+            $registration->active = 1;
+            $registration->activation_key = $id . "ACTIVATED";
+            $registration->save();
+            return Redirect::action('SessionsController@create')->withSuccess('Your account has been activated. You can login now.');
         }
 
-        // Update User ID
-        $registration->active = 1;
-        $registration->save();
-        return Redirect::action('SessionsController@create')->withSuccess('Your account has been activated. You can login now.');
+        return Redirect::to('/');
 	}
 
 	/**

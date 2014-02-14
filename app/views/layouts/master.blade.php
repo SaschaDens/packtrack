@@ -22,7 +22,7 @@
     </script>
 </head>
 <body>
-    <header class="navbar">
+    <header>
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,20 +37,28 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav pull-right">
-                    <li><span class="icon-bar"></span></li>
-                    <li class="active"><a href="{{ URL::to('/') }}">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#contact">Help</a></li>
+                    <li class="{{ set_active('/') }}">
+                        <a href="{{ URL::to('/') }}">Home</a>
+                    </li>
+                    <li class="{{ set_active('about') }}">
+                        {{ link_to_action('HomeController@about', 'About') }}
+                    </li>
+                    <li class="{{ set_active('contact') }}">
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <li class="{{ set_active('dashboard') }}">
+                        <a href="#contact">Packages</a>
+                    </li>
+                    <li class="{{ set_active('contact') }}">
+                        <a href="#contact">Help</a>
+                    </li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </header>
     <div class="content">
         <div class="container">
-            <div class="page-header">
-                <h2>@yield('post-title')</h2>
-            </div>
+
 
             @if(Session::get('success'))
             <div class="alert alert-success fade in">
