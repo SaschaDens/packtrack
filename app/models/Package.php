@@ -22,6 +22,21 @@ class Package extends Eloquent {
         });
     }
 
+    public static function byUserID($id){
+        return User::byUserID($id)->cars;
+    }
+
+    public static function find($id, $userID = null)
+    {
+        $package = Static::with('user')->find($id);
+
+        if($userID and $package->user->id !== $userID)
+        {
+            throw new Illuminate\Database\Eloquent\ModelNotFoundException;
+        }
+        return $package;
+    }
+
     public function user()
     {
         return $this->belongsTo('User');

@@ -36,6 +36,7 @@ class SessionsController extends \BaseController {
 				'password' => $input['password']
 			));
 
+            if(Auth::user()->isActive()) return Redirect::to('login')->withErrors('Your account is not validated yet. Please check your email for validaiton.')->withInput();;
 			if($attempt) return Redirect::intended('dashboard');
 
 			return Redirect::to('login')->withErrors('Incorrect Credentials')->withInput();;

@@ -30,18 +30,6 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('id', 'password', 'activation_key', 'active');
 
-    public static $registration_rules = array(
-        'first_name'            =>  'required',
-        'last_name'             =>  'required',
-        'email'                 =>  'required|email|unique:users',
-        'password'              =>  'required',
-        'password_confirmation' =>  'same:password',
-        'address'               =>  'required',
-        'city'                  =>  'required',
-        'postal_code'           =>  'required',
-        'country'               =>  'required'
-    );
-
 	/**
 	 * Get the unique identifier for the user.
 	 *
@@ -88,6 +76,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     public function setPasswordAttribute($value){
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function isActive()
+    {
+        return ($this->active == 0)? false : true;
     }
 
     public function packages()

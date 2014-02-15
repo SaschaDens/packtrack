@@ -6,7 +6,6 @@ class PackageController extends BaseController {
     function __construct(PackageCreatorService $packageCreator)
     {
         $this->beforeFilter('auth');
-        $this->beforeFilter('isActivated');
 
         $this->packageCreator = $packageCreator;
     }
@@ -18,7 +17,9 @@ class PackageController extends BaseController {
 	 */
 	public function index()
 	{
-        return View::make('packages.index');
+        $packages = Auth::user()->packages;
+
+        return View::make('packages.index', compact('packages'));
 	}
 
 	/**
@@ -57,7 +58,9 @@ class PackageController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('packages.show');
+        $package = Package::find($id, Auth::user()->id);
+
+        return View::make('packages.show', compact('package'));
 	}
 
 	/**

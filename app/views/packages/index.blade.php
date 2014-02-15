@@ -1,35 +1,40 @@
 @extends('layouts.master')
 
+@section('html-tag', 'ng-app')
 @section('title', 'Dashboard')
 
 @section('content')
-<h3>Quick Settings</h3>
-<div class="row text-center">
-    <div class="col-md-4">
-        <span>Create package</span>
-    </div>
-    <div class="col-md-4">
-        <span>Random Box</span>
-    </div>
-    <div class="col-md-4">
-        <span>Settings</span>
-    </div>
-</div>
+    <h3>Quick Settings</h3>
 
-<h3>Active Packages</h3>
-<table class="table table-hover">
-    <thead>
-    <th>Tracking Code</th>
-    <th>Address</th>
-    <th>Status</th>
-    </thead>
-</table>
-<h3>Delivered Packages</h3>
-<table class="table table-hover">
-    <thead>
-    <th>Tracking Code</th>
-    <th>Address</th>
-    <th>Status</th>
-    </thead>
-</table>
+    <h3>Packages</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Sended at</th>
+                <th>Tracking Code</th>
+                <th>Address</th>
+                <th>Postal Code</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($packages as $package)
+                <tr>
+                    <td>{{ $package->created_at }}</td>
+                    <td>{{ $package->tracking_code }}</td>
+                    <td>{{ $package->address }}</td>
+                    <td>{{ $package->postal_code }}</td>
+                    <td>{{ $package->city }}</td>
+                    <td>{{ $package->country }}</td>
+                    <td>STATUS</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@stop
+
+@section('scripts')
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
 @stop

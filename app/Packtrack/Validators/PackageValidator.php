@@ -8,7 +8,7 @@ class PackageValidator extends Validator{
         'address'    =>  'required',
         'postal_code' =>  'required',
         'tracking_code' =>  'unique:package',
-        'reciever_mail' =>  '',
+        'reciever_mail' =>  'email',
         'description'   =>  ''
     );
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl">
+<html lang="nl" @yield('html-tag')>
 <head>
     <meta charset="utf-8">
     <title>@yield('title', 'Pack And Track ')</title>
