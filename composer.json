@@ -9,7 +9,8 @@
         "dinesh/barcode": "dev-master"
 	},
     "require-dev": {
-        "fzaninotto/faker": "dev-master"
+        "fzaninotto/faker": "dev-master",
+        "itsgoingd/clockwork": "1.*"
     },
 	"autoload": {
 		"classmap": [

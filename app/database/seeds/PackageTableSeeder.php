@@ -8,12 +8,11 @@ class PackageTableSeeder extends Seeder {
 		 DB::table('package')->truncate();
 
         Package::create(array(
-            'client_id'     => 1,
-            'to_country'    =>  'Belgium',
-            'to_city'       =>  'Westerlo',
-            'to_Address'    =>  'Stekelbesstraat 10',
-            'to_postalcode' =>  '2260',
-            'tracking_code' =>  '4PKJKVJ826057'
+            'user_id'     => 1,
+            'country'    =>  'BE',
+            'city'       =>  'Westerlo',
+            'address'    =>  'Stekelbesstraat 10',
+            'postal_code' =>  '2260'
         ));
 
 		// Uncomment the below to run the seeder

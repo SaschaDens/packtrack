@@ -46,7 +46,7 @@ class PackageController extends BaseController {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }
 
-        //return Redirect::action('SessionsController@create')->withSuccess('An email has been sended. Please confirm you account.');
+        return Redirect::action('PackageController@index')->withSuccess('Package successfully created');
 	}
 
 	/**

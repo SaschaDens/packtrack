@@ -109,7 +109,8 @@ return array(
 
         'Way\Generators\GeneratorsServiceProvider',
         'Packtrack\Generator\GenerateServiceProvider',
-        'Dinesh\Barcode\BarcodeServiceProvider'
+        'Dinesh\Barcode\BarcodeServiceProvider',
+        'Clockwork\Support\Laravel\ClockworkServiceProvider'
 	),
 
 	/*
@@ -177,7 +178,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
         'Generate'        => 'Packtrack\Generator\GenerateService',
-
+        'Clockwork' => 'Clockwork\Support\Laravel\Facade',
 	),
 
 );

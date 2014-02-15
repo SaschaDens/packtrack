@@ -9,3 +9,9 @@ function gravatar_url($email, $size=null){
 function set_active($path, $active = 'active'){
     return Request::is($path) ? $active : '';
 }
+
+function sort_by($column, $body)
+{
+    $direction = (Request::get('direction') == 'asc')? 'desc' : 'asc';
+    return link_to_route('employees', $body, array('sortBy' => $column, 'direction' => $direction));
+}

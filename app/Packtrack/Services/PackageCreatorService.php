@@ -3,6 +3,7 @@
 use Packtrack\Validators\PackageValidator;
 use Packtrack\Validators\ValidationException;
 use Package;
+use Auth;
 
 class PackageCreatorService {
 
@@ -17,7 +18,15 @@ class PackageCreatorService {
     {
         if($this->validator->isValid($attributes))
         {
-            Package::create($attributes);
+            Package::create(array(
+                'user_id'           =>  Auth::user()->id,
+                'address'        =>  $attributes['address'],
+                'city'           =>  $attributes['city'],
+                'postal_code'     =>  $attributes['postal_code'],
+                'country'        =>  $attributes['country'],
+                'reciever_mail'     =>  $attributes['reciever_mail'],
+                'description'       =>  $attributes['description'],
+            ));
 
             return true;
         }

@@ -14,12 +14,12 @@ class CreatePackageTable extends Migration {
 	{
 		Schema::create('package', function(Blueprint $table) {
 			$table->increments('id');
-            $table->integer('client_id')->unsigned();
-            $table->string('to_country');
-            $table->string('to_city');
-            $table->string('to_address');
-            $table->string('to_postalcode');
-            $table->string('tracking_code');
+            $table->integer('user_id')->unsigned();
+            $table->string('country');
+            $table->string('city');
+            $table->string('address');
+            $table->string('postal_code');
+            $table->string('tracking_code')->unique();
             $table->string('reciever_mail')->nullable();
             $table->string('description')->nullable();
 			$table->timestamps();

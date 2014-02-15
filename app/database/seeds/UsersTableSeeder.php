@@ -12,10 +12,11 @@ class UsersTableSeeder extends Seeder {
         User::create(array(
             'first_name'    =>  'sascha',
             'last_name'     =>  'dens',
-            'email'         =>  'sascha.dens@telenet.be',
+            'email'         =>  'sascha@packandtrack.be',
             'password'      =>  'dens',
             'activation_key'    => Generate::activation_key(),
-            'country'       =>  'Belgium',
+            'active'        =>  1,
+            'country'       =>  'BE',
             'city'          =>  $faker->city,
             'postal_code'   =>  '2260',
             'address'       =>  $faker->address

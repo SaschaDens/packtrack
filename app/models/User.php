@@ -28,7 +28,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password');
+	protected $hidden = array('id', 'password', 'activation_key', 'active');
 
     public static $registration_rules = array(
         'first_name'            =>  'required',
@@ -77,9 +77,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $query->whereActivation_key($type);
     }
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($model){
+            $setActivation = $model->activation_key = Generate::activation_key();
+        });
+    }
+
     public function setPasswordAttribute($value){
         $this->attributes['password'] = Hash::make($value);
-        // Setting Activation Key
-        $this->attributes['activation_key'] = Generate::activation_key();
+    }
+
+    public function packages()
+    {
+        return $this->hasMany('Package');
     }
 }

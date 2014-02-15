@@ -6,6 +6,12 @@ Form::macro('bt_text', function($name, $value, $label = null, $attr = array())
     return bt_wrapper($element, $name, $label);
 });
 
+Form::macro('bt_email', function($name, $value, $label = null, $attr = array())
+{
+    $element = Form::email($name, $value, mergeArr(array("class" => "form-control"), $attr));
+    return bt_wrapper($element, $name, $label);
+});
+
 Form::macro('bt_textarea', function($name, $value, $label = null, $attr = array())
 {
     $element = Form::textarea($name, $value, mergeArr(array("class" => "form-control"), $attr));
