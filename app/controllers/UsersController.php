@@ -70,11 +70,12 @@ class UsersController extends BaseController {
 
             // Update User ID
             $registration->active = 1;
-            $registration->activation_key = $id . "ACTIVATED";
+            $registration->activation_key = $id . "0000";
             $registration->save();
             return Redirect::action('SessionsController@create')->withSuccess('Your account has been activated. You can login now.');
         }
 
+        // Incorrect Activation key
         return Redirect::to('/');
 	}
 

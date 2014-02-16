@@ -1,7 +1,7 @@
 <?php namespace Packtrack\Validators;
 
 class UserValidator extends Validator{
-    protected static $rules = array(
+    protected static $create_rules = array(
         'first_name'            =>  'required',
         'last_name'             =>  'required',
         'email'                 =>  'required|email|unique:users',

@@ -28,7 +28,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('id', 'password', 'activation_key', 'active');
+	protected $hidden = array('id', 'password', 'activation_key', 'activated');
 
 	/**
 	 * Get the unique identifier for the user.
@@ -78,9 +78,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         $this->attributes['password'] = Hash::make($value);
     }
 
-    public function isActive()
+    public function isActivated()
     {
-        return ($this->active == 0)? false : true;
+        return (bool) $this->activated;
     }
 
     public static function byUserID($id){

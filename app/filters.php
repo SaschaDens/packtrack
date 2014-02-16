@@ -36,7 +36,7 @@ App::after(function($request, $response)
 Route::filter('auth', function()
 {
     // Uitbreiding
-    if(!Auth::guest() and !Auth::user()->isActive())
+    if(!Auth::guest() and !Auth::user()->isActivated())
     {
         Auth::logout();
         return Redirect::to('login')->withErrors('Your account is not validated yet');
@@ -83,17 +83,6 @@ Route::filter('csrf', function()
 	{
 		throw new Illuminate\Session\TokenMismatchException;
 	}
-});
-
-// Zit Fout in
-Route::filter('isActivated', function(){
-    $level = Auth::user()->isActive;
-
-    if(!Auth::guest() and $level)
-    {
-        Auth::logout();
-        return Redirect::to('login')->withErrors('Your account is not validated yet');
-    }
 });
 
 /*
