@@ -4,15 +4,15 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		return View::make('front.home');
+		return View::make('home');
 	}
     public function about()
     {
-        return View::make('front.about');
+        return View::make('about');
     }
     public function contact()
     {
-        return View::make('front.contact');
+        return View::make('contact');
     }
 
 }

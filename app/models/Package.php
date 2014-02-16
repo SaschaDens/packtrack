@@ -23,7 +23,7 @@ class Package extends Eloquent {
     }
 
     public static function byUserID($id){
-        return User::byUserID($id)->cars;
+        return User::byUserID($id)->packages;
     }
 
     public static function find($id, $userID = null)

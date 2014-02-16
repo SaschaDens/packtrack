@@ -1,10 +1,15 @@
 <?php
 
+use \Packtrack\Services\LoginCreatorService;
+
 class SessionsController extends \BaseController {
 
-	public function __construct(){
+    protected $loginCreator;
+	public function __construct(LoginCreatorService $loginCreator){
 		$this->beforeFilter('guest', array('except' => array('destroy')));
 		$this->beforeFilter('csrf', array('only' => array('store')));
+
+        $this->loginCreator = $loginCreator;
 	}
 
 	/**
@@ -14,7 +19,7 @@ class SessionsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::Make('front.login');
+		return View::Make('login');
 	}
 
 	/**
@@ -24,24 +29,20 @@ class SessionsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
-		$validate = Validator::make($input,array(
-			'email' => 'required|email',
-			'password' => 'required'
-		));
+        try
+        {
+            $login = $this->loginCreator->auth(Input::all());
 
-		if(!$validate->fails()){
-			$attempt = Auth::attempt(array(
-				'email' => $input['email'],
-				'password' => $input['password']
-			));
+            if($login)
+            {
+                return Redirect::intended('dashboard');
+            }
 
-            if(Auth::user()->isActive()) return Redirect::to('login')->withErrors('Your account is not validated yet. Please check your email for validaiton.')->withInput();;
-			if($attempt) return Redirect::intended('dashboard');
-
-			return Redirect::to('login')->withErrors('Incorrect Credentials')->withInput();;
-		};
-		return Redirect::to('login')->withErrors($validate)->withInput();
+            return Redirect::to('login')->withErrors('Incorrect Credentials')->withInput();;
+        } catch(Packtrack\Validators\ValidationException $e)
+        {
+            return Redirect::back()->withInput()->withErrors($e->getErrors());
+        }
 	}
 	
 	/**

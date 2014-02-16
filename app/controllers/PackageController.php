@@ -17,9 +17,11 @@ class PackageController extends BaseController {
 	 */
 	public function index()
 	{
-        $packages = Auth::user()->packages;
+        //http://stackoverflow.com/questions/20913606/laravel-4-1-how-to-paginate-eloquent-eager-relationship
+        $packages = Auth::user()->getUserPaginatedAttribute();
+        $user = Auth::user();
 
-        return View::make('packages.index', compact('packages'));
+        return View::make('packages.index', compact('packages', 'user'));
 	}
 
 	/**

@@ -83,6 +83,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return ($this->active == 0)? false : true;
     }
 
+    public static function byUserID($id){
+        return static::whereId($id)->first();
+    }
+
+    public function getUserPaginatedAttribute()
+    {
+        return $this->packages()->orderBy('created_at', 'desc')->paginate(5);
+    }
+
     public function packages()
     {
         return $this->hasMany('Package');

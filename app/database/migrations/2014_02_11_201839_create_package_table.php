@@ -22,6 +22,7 @@ class CreatePackageTable extends Migration {
             $table->string('tracking_code')->unique();
             $table->string('reciever_mail')->nullable();
             $table->string('description')->nullable();
+            $table->integer('status_code')->default(0);
 			$table->timestamps();
 		});
 	}

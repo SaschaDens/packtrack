@@ -1,5 +1,5 @@
 <?php
 
 App::missing(function($exception) {
-    return Response::view('errors.missing', array(), 404);
+    return Response::view('404', array(), 404);
 });

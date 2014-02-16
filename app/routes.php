@@ -22,6 +22,11 @@ Route::get('mail', function(){
 Route::get('api', 'ApiController@index');
 Route::get('api/tracking/{tracking_key}', 'ApiController@getTracking');
 
-//
+// Resources
 Route::resource('register', 'UsersController');
 Route::resource('dashboard', 'PackageController');
+
+// Control panel for admins
+Route::get('cp', function(){
+    return "ok";
+});

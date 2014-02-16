@@ -10,10 +10,62 @@ class UsersTableSeeder extends Seeder {
 		DB::table('users')->truncate();
 
         User::create(array(
-            'first_name'    =>  'sascha',
-            'last_name'     =>  'dens',
+            'first_name'    =>  'Sascha',
+            'last_name'     =>  'Dens',
             'email'         =>  'sascha@packandtrack.be',
-            'password'      =>  'dens',
+            'password'      =>  'abc123!',
+            'activation_key'    => Generate::activation_key(),
+            'active'        =>  1,
+            'country'       =>  'BE',
+            'city'          =>  $faker->city,
+            'postal_code'   =>  '2260',
+            'address'       =>  $faker->address
+        ));
+
+        User::create(array(
+            'first_name'    =>  'Benjamin',
+            'last_name'     =>  'Craane',
+            'email'         =>  'benjamin@packandtrack.be',
+            'password'      =>  'abc123!',
+            'activation_key'    => Generate::activation_key(),
+            'active'        =>  1,
+            'country'       =>  'BE',
+            'city'          =>  $faker->city,
+            'postal_code'   =>  '2260',
+            'address'       =>  $faker->address
+        ));
+
+        User::create(array(
+            'first_name'    =>  'Nicolas',
+            'last_name'     =>  'Keustermans',
+            'email'         =>  'nicolas@packandtrack.be',
+            'password'      =>  'abc123!',
+            'activation_key'    => Generate::activation_key(),
+            'active'        =>  1,
+            'country'       =>  'BE',
+            'city'          =>  $faker->city,
+            'postal_code'   =>  '2260',
+            'address'       =>  $faker->address
+        ));
+
+        User::create(array(
+            'first_name'    =>  'Jonas',
+            'last_name'     =>  'Dieltiens',
+            'email'         =>  'jonas@packandtrack.be',
+            'password'      =>  'abc123!',
+            'activation_key'    => Generate::activation_key(),
+            'active'        =>  1,
+            'country'       =>  'BE',
+            'city'          =>  $faker->city,
+            'postal_code'   =>  '2260',
+            'address'       =>  $faker->address
+        ));
+
+        User::create(array(
+            'first_name'    =>  'Brent',
+            'last_name'     =>  'De Pauw',
+            'email'         =>  'brent@packandtrack.be',
+            'password'      =>  'abc123!',
             'activation_key'    => Generate::activation_key(),
             'active'        =>  1,
             'country'       =>  'BE',

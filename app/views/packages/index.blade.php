@@ -4,13 +4,17 @@
 @section('title', 'Dashboard')
 
 @section('content')
+    <div class="pull-right">
+        Welcome, {{ $user->email }} {{ link_to_action('SessionsController@destroy', 'Logout') }}
+    </div>
     <h3>Quick Settings</h3>
-
+    {{ link_to_action('PackageController@create', 'Create new package') }}
+    <p>Mail Versturen naar ontvanger nadat het bij een locatie is binnengebracht</p>
     <h3>Packages</h3>
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Sended at</th>
+                <th>Created at</th>
                 <th>Tracking Code</th>
                 <th>Address</th>
                 <th>Postal Code</th>
@@ -23,16 +27,18 @@
             @foreach($packages as $package)
                 <tr>
                     <td>{{ $package->created_at }}</td>
-                    <td>{{ $package->tracking_code }}</td>
+                    <td>{{ link_to_action('PackageController@show', $package->tracking_code, array($package->id)) }}</td>
                     <td>{{ $package->address }}</td>
                     <td>{{ $package->postal_code }}</td>
                     <td>{{ $package->city }}</td>
                     <td>{{ $package->country }}</td>
-                    <td>STATUS</td>
+                    <td>Not tracked yet</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+
+    {{ $packages->links() }}
 @stop
 
 @section('scripts')
