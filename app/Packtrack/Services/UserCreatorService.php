@@ -1,7 +1,7 @@
 <?php namespace Packtrack\Services;
 
 use Packtrack\Validators\UserValidator;
-use Packtrack\Validators\ValidationException;
+use Packtrack\Exceptions\ValidationException;
 use User;
 
 class UserCreatorService {
@@ -15,7 +15,7 @@ class UserCreatorService {
 
     public function make(array $attributes)
     {
-        if($this->validator->isValid($attributes))
+        if($this->validator->isValidCreate($attributes))
         {
             User::create($attributes);
 

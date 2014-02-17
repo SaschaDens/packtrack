@@ -20,3 +20,4 @@ Route::resource('dashboard', 'PackageController');
 
 // Control panel for admins
 Route::get('cp', 'SupportController@index');
+Route::resource('cp/locations', 'LocationController');
