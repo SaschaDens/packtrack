@@ -6,6 +6,7 @@ class PackageController extends BaseController {
     function __construct(PackageCreatorService $packageCreator)
     {
         $this->beforeFilter('auth');
+        $this->beforeFilter('redirectAdmin');
 
         $this->packageCreator = $packageCreator;
     }
@@ -44,7 +45,7 @@ class PackageController extends BaseController {
         try
         {
             $this->packageCreator->make(Input::all());
-        } catch(Packtrack\Validators\ValidationException $e)
+        } catch(Packtrack\Exceptions\ValidationException $e)
         {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }

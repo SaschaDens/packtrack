@@ -1,4 +1,4 @@
-<?php namespace Packtrack\Validators;
+<?php namespace Packtrack\Exceptions;
 
 use Exception;
 

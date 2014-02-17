@@ -1,7 +1,7 @@
 <?php namespace Packtrack\Services;
 
 use Packtrack\Validators\PackageValidator;
-use Packtrack\Validators\ValidationException;
+use Packtrack\Exceptions\ValidationException;
 use Package;
 use Auth;
 
@@ -31,6 +31,6 @@ class PackageCreatorService {
             return true;
         }
 
-        throw new ValidationException('Task validation failed', $this->validator->getErrors());
+        throw new ValidationException('Package validation failed', $this->validator->getErrors());
     }
 }

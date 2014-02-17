@@ -37,10 +37,54 @@
         <h3 class="panel-title">Package log: {{ $package->tracking_code }}</h3>
     </div>
     <div class="panel-body">
-        <ul class="list-group">
-            <li class="list-group-item">{{ $package->created_at }}: Package registered to service</li>
-            <li class="list-group-item">More coming here</li>
-        </ul>
+
+        <div class="log">
+            <div class="road">
+                <span class="glyphicon glyphicon-road"></span>
+            </div>
+            <div class="timeline"></div>
+            <div class="description">
+                <h4>Wednesday 12 februari</h4>
+                <p>Packet is arrived at Brussel</p>
+
+            </div>
+        </div>
+
+        <div class="log">
+            <div class="road">
+                <span class="glyphicon glyphicon-road"></span>
+            </div>
+            <div class="description">
+                Some Text
+            </div>
+
+        </div>
+
+<!--
+        <table border="1">
+            <tr>
+                <td class="tabledaytime">
+                    <span class="day">
+
+                    </span>
+                    <span class="time">
+
+                    </span>
+                </td>
+                <td class="road">
+                    <div class="road">
+                        <span class="glyphicon glyphicon-road"></span>
+                    </div>
+                </td>
+                <td class="tabledescription">
+
+                </td>
+            </tr>
+            <tr>
+
+            </tr>
+        </table>
+        -->
     </div>
 </div>
 

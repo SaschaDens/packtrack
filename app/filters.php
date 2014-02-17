@@ -87,6 +87,32 @@ Route::filter('csrf', function()
 
 /*
 |--------------------------------------------------------------------------
+| Admin Filter
+|--------------------------------------------------------------------------
+|
+| This filter will check if user has permission for admin area
+|
+*/
+
+Route::filter('redirectAdmin', function(){
+    $level = Auth::user()->getPermission();
+    if($level >= 1) return Redirect::action('SupportController@index');
+});
+
+Route::filter('isSupport', function(){
+    $level = Auth::user()->getPermission();
+    if($level < 1) throw new Packtrack\Exceptions\PermissionException('This account has not enough support permissions.');
+    //return (bool) Auth::user()->getPermission();
+});
+
+Route::filter('isAdmin', function(){
+    $level = Auth::user()->getPermission();
+    if($level < 2) throw new Packtrack\Exceptions\PermissionException('This account has not enough admin permissions.');
+    //return (bool) Auth::user()->getPermission();
+});
+
+/*
+|--------------------------------------------------------------------------
 | Cache Filter
 |--------------------------------------------------------------------------
 |

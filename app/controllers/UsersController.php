@@ -44,7 +44,7 @@ class UsersController extends BaseController {
         try
         {
             $this->userCreator->make(Input::all());
-        } catch(Packtrack\Validators\ValidationException $e)
+        } catch(Packtrack\Exceptions\ValidationException $e)
         {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }

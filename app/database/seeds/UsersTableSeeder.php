@@ -62,12 +62,26 @@ class UsersTableSeeder extends Seeder {
         ));
 
         User::create(array(
-            'first_name'    =>  'Brent',
-            'last_name'     =>  'De Pauw',
-            'email'         =>  'brent@packandtrack.be',
+        'first_name'    =>  'Brent',
+        'last_name'     =>  'De Pauw',
+        'email'         =>  'brent@packandtrack.be',
+        'password'      =>  'abc123!',
+        'activation_key'    => Generate::activation_key(),
+        'activated'        =>  1,
+        'country'       =>  'BE',
+        'city'          =>  $faker->city,
+        'postal_code'   =>  '2260',
+        'address'       =>  $faker->address
+    ));
+
+        User::create(array(
+            'first_name'    =>  'Support',
+            'last_name'     =>  'ICT',
+            'email'         =>  'support@packandtrack.be',
             'password'      =>  'abc123!',
             'activation_key'    => Generate::activation_key(),
             'activated'        =>  1,
+            'permission_level'        =>  1,
             'country'       =>  'BE',
             'city'          =>  $faker->city,
             'postal_code'   =>  '2260',

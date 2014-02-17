@@ -1,6 +1,7 @@
 body {
 	background: #eee;
 	color: #393e46;
+    height: 100%;
 }
 
 a{
@@ -100,4 +101,47 @@ footer{
 .nav>li>a:hover, .nav>li>a:focus
 {
     background: none;
+}
+.log{
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    margin-bottom: 0px;
+    height: 200px;
+
+}
+.road{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #2ecc71;
+    text-align: center;
+    border-radius: 25px;
+    line-height: 50px;
+    z-index: 100;
+}
+.description{
+    position: absolute;
+    display: block;
+    background-color: #E3E6E7;
+    left: 100px;
+    height: 100px;
+    top: 20px;
+    width: 90%;
+    float: left;
+    margin-top: 0px;
+    padding: 5px 15px;
+}
+
+
+
+.timeline{
+    display: block;
+    position: relative;
+    background-color: #E3E6E7;
+    height: 100%;
+    width: 10px;
+    top: 0px;
+    left: 20px;
+
 }

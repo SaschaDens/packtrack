@@ -21,11 +21,11 @@ class CreateUsersTable extends Migration {
             $table->string('password');
             $table->string('activation_key')->unique();
             $table->boolean('activated')->default(0);
+            $table->integer('permission_level')->default(0);
             $table->string('country');
             $table->string('city');
             $table->string('postal_code');
             $table->string('address');
-            $table->string('last_login');
 
             $table->timestamps();
 		});

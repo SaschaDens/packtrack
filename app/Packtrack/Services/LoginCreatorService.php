@@ -1,7 +1,7 @@
 <?php namespace Packtrack\Services;
 
 use Packtrack\Validators\LoginValidator;
-use Packtrack\Validators\ValidationException;
+use Packtrack\Exceptions\ValidationException;
 use Auth;
 use Redirect;
 
@@ -26,7 +26,7 @@ class LoginCreatorService {
             return $attempt;
         }
 
-        throw new ValidationException('Task validation failed', $this->validator->getErrors());
+        throw new ValidationException('Login validation failed', $this->validator->getErrors());
     }
 
     public function make(array $attributes)
