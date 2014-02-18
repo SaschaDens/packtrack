@@ -2,6 +2,15 @@
 
 class ApiController extends BaseController {
 
+    public function __construct()
+    {
+        App::after(function($request, $response)
+        {
+            $response->headers->set('Access-Control-Allow-Origin', '*');
+            return $response;
+        });
+    }
+
 	public function index()
     {
         return "API index";
