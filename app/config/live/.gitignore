@@ -1,3 +1,4 @@
 database.php
 app.php
 mail.php
+queue.php

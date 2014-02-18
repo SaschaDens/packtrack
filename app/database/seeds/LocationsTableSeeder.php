@@ -19,9 +19,12 @@ class LocationsTableSeeder extends Seeder {
         Location::create(array(
             // Locatie
             'type'  =>  1,
+            'lat'   =>  53.02,
+            'long'  =>  41.03,
             'address'   =>  'Kleinhoefstraat 4',
             'country'   =>  'Belgium',
-            'city'      =>  'Geel'
+            'city'      =>  'Geel',
+            'postal_code'   => '2260'
         ));
 
 

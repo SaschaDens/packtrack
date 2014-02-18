@@ -23,6 +23,7 @@ class CreateLocationsTable extends Migration {
             $table->String('address')->nullable();
             $table->String('country')->nullable();
             $table->String('city')->nullable();
+            $table->String('postal_code')->nullable();
 			
 			$table->timestamps();
 		});

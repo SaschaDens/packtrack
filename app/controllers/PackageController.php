@@ -85,7 +85,7 @@ class PackageController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		dd($id);
 	}
 
 	/**

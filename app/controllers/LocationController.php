@@ -1,8 +1,18 @@
 <?php
 
+use \Packtrack\Services\LocationCreatorService;
+
 class LocationController extends BaseController {
 
-	/**
+    protected $locationCreator;
+    public function __construct(LocationCreatorService $locationCreator)
+    {
+        $this->beforeFilter('isSupport'); // SUPPORT MAG INDEX ZIEN. Niet aanmaken en aanpassen.
+
+        $this->locationCreator = $locationCreator;
+    }
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
@@ -30,7 +40,13 @@ class LocationController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+        try
+        {
+            $this->locationCreator->make(Input::all());
+        } catch(Packtrack\Exceptions\ValidationException $e)
+        {
+            return Redirect::back()->withInput()->withErrors($e->getErrors());
+        }
 	}
 
 	/**
@@ -52,7 +68,8 @@ class LocationController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('locations.edit');
+        $location = Location::findOrFail($id);
+        return View::make('locations.edit', compact('location'));
 	}
 
 	/**
@@ -63,7 +80,14 @@ class LocationController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+        try
+        {
+            $this->locationCreator->update($id, Input::all());
+        } catch(Packtrack\Exceptions\ValidationException $e)
+        {
+            return Redirect::back()->withInput()->withErrors($e->getErrors());
+        }
+        return Redirect::action('LocationController@index')->withSuccess('Location updated');
 	}
 
 	/**

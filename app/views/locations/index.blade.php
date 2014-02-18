@@ -9,6 +9,7 @@
             <th>Address</th>
             <th>City</th>
             <th>Country</th>
+            <th>Postal Code</th>
             <th>Modify</th>
         </tr>
     </thead>
@@ -18,6 +19,7 @@
             <td>{{ $loc->address }}</td>
             <td>{{ $loc->city }}</td>
             <td>{{ $loc->country }}</td>
+            <td>{{ $loc->postal_code }}</td>
             <td>Bewerk / Wis</td>
         </tr>
         @endforeach
