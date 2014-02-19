@@ -18,7 +18,7 @@ class CreatePackagelogTable extends Migration {
             $table->integer('package_id')->unsigned();
             $table->integer('status')->unsigned();
             $table->string('description');
-            $table->integer('location_id')->unsigned();
+            $table->integer('location_id')->default(1)->unsigned();
 			
 			$table->timestamps();
 		});

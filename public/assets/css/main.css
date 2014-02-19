@@ -1,5 +1,10 @@
+* {
+    margin:0;
+    padding:0;
+}
+
 body {
-	background: #eee;
+	background: #ffffff;
 	color: #393e46;
     height: 100%;
 }
@@ -81,11 +86,24 @@ header nav li {
 
 footer{
 	padding: 40px;
+    height: 100px;
+    border-bottom: 1px solid #000000 ;
+    background-color: #ee4c50
 }
 
+/*
+.navbar-fixed-bottom{
+    height: 100px;
+}*/
+
+
+/*Sticky Footer Toevoegen!!!!!!!!*/
+
 .content {
+    position: relative;
 	background: white;
 	padding: 20px 0;
+
 }
 
 .content article{
@@ -107,7 +125,7 @@ footer{
 
 }
 
-/*----------Package Log -----------*/
+/*----------Package Log -----------
 .log{
     position: relative;
     overflow: visible;
@@ -139,13 +157,7 @@ footer{
     padding: 0px 15px;
 }
 
-.corner{
-    position: absolute;
-    left: 70px;
-    height: 20px;
-    width: 20px;
-    top: 20px;
-}
+
 
 .timeline{
     display: block;
@@ -156,7 +168,7 @@ footer{
     left: 20px;
 
 }
-
+*/
 
 /*--------------------Timeline------------*/
 
@@ -177,6 +189,7 @@ footer{
     left: 0px;
     padding: 0 0px 40px 40px;
     border-left: 6px solid #3498db;
+
 }
 .blogrol h3{
     margin-top: 0px;
@@ -190,7 +203,7 @@ footer{
     color: white;
     font-size: 20px;
     text-align: center;
-    line-height: 20px;
+    line-height: 60px;
    }
 .date p:first-child{
     padding-top: 5px;
@@ -204,4 +217,34 @@ footer{
 .blogrol article:last-child {
     border-left: 0;
     margin-left: 6px;
+}
+
+.blogrol .articleblock{
+    background-color: #E3E5E6;
+    border: 0px solid black;
+    padding: 10px;
+}
+
+
+.blogrol .corner{
+    position: absolute;
+    left: 31px;
+    height: 20px;
+    width: 20px;
+    top: 14px;
+    z-index: 0;
+}
+
+.arrow-left {
+    position: absolute;
+    top: 14px;
+    left: 31px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right:10px solid #E3E5E6;
+}
+.blogrol .clear{
+    clear: both;
 }

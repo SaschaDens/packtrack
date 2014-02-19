@@ -81,19 +81,20 @@
             @yield('content')
         </div>
     </div>
-
+    <div class="push"></div>
     <footer>
         <div class="container">
-            <div class="col-md-4">
+                <div class="col-md-4">
 
-            </div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                Quick links
-                <ul>
-                    <li><a href="#">Github</a></li>
-                </ul>
-            </div>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    Quick links
+                    <ul>
+                        <li><a href="#">Github</a></li>
+                    </ul>
+                </div>
+
         </div>
     </footer>
     <!-- scripts -->

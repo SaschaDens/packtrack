@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration {
             $table->string('city');
             $table->string('postal_code');
             $table->string('address');
+            $table->integer('location_id')->unsigned();
 
             $table->timestamps();
 		});

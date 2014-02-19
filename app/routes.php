@@ -16,13 +16,15 @@ Route::get('api/tracking/{tracking_key}', 'ApiController@getTracking');
 
 // Resources
 Route::resource('register', 'UsersController');
-Route::resource('dashboard', 'PackageController');
+Route::resource('dashboard', 'UserPackageController');
 
 // Control panel for admins
 Route::get('cp', 'SupportController@index');
 Route::resource('cp/locations', 'LocationController', array('except' => array('show')));
+Route::get('cp/checkout', 'PackagelogController@checkout');
+Route::resource('cp/checkin', 'PackagelogController');
 
 
 Route::get('mail', function(){
-    return View::make('layouts.mail');
+    return View::make('emails.activation');
 });

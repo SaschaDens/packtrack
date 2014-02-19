@@ -1,6 +1,6 @@
 <?php
 use \Packtrack\Services\PackageCreatorService;
-class PackageController extends BaseController {
+class UserPackageController extends BaseController {
 
     protected $packageCreator;
     function __construct(PackageCreatorService $packageCreator)
@@ -22,7 +22,7 @@ class PackageController extends BaseController {
         $packages = Auth::user()->getUserPaginatedAttribute();
         $user = Auth::user();
 
-        return View::make('packages.index', compact('packages', 'user'));
+        return View::make('userpackages.index', compact('packages', 'user'));
 	}
 
 	/**
@@ -32,7 +32,7 @@ class PackageController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('packages.create');
+        return View::make('userpackages.create');
 	}
 
 	/**
@@ -50,7 +50,7 @@ class PackageController extends BaseController {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }
 
-        return Redirect::action('PackageController@index')->withSuccess('Package successfully created');
+        return Redirect::action('UserPackageController@index')->withSuccess('Package successfully created');
 	}
 
 	/**
@@ -63,7 +63,7 @@ class PackageController extends BaseController {
 	{
         $package = Package::find($id, Auth::user()->id);
 
-        return View::make('packages.show', compact('package'));
+        return View::make('userpackages.show', compact('package'));
 	}
 
 	/**
@@ -74,7 +74,7 @@ class PackageController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('packages.edit');
+        return View::make('userpackages.edit');
 	}
 
 	/**
@@ -85,7 +85,7 @@ class PackageController extends BaseController {
 	 */
 	public function update($id)
 	{
-		dd($id);
+
 	}
 
 	/**

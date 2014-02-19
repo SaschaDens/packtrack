@@ -10,4 +10,9 @@ class Location extends Eloquent {
     {
         return $query->whereType(1);
     }
+
+    public function users()
+    {
+        return $this->hasMany('User');
+    }
 }

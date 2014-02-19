@@ -10,6 +10,10 @@ class LocationsTableSeeder extends Seeder {
 		DB::table('locations')->truncate();
 
         Location::create(array(
+            // EMPTY
+        ));
+
+        Location::create(array(
             // Koerier
             'type'  =>  0,
             'lat'   =>  53.02,

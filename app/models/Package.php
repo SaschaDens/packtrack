@@ -41,4 +41,9 @@ class Package extends Eloquent {
     {
         return $this->belongsTo('User');
     }
+
+    public function scopeTrackingcode($query, $type)
+    {
+        return $query->whereTracking_code($type);
+    }
 }
