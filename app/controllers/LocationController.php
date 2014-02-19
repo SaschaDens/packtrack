@@ -50,17 +50,6 @@ class LocationController extends BaseController {
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-        return View::make('locations.show');
-	}
-
-	/**
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param  int  $id

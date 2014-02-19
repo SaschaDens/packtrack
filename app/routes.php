@@ -20,4 +20,9 @@ Route::resource('dashboard', 'PackageController');
 
 // Control panel for admins
 Route::get('cp', 'SupportController@index');
-Route::resource('cp/locations', 'LocationController');
+Route::resource('cp/locations', 'LocationController', array('except' => array('show')));
+
+
+Route::get('mail', function(){
+    return View::make('layouts.mail');
+});

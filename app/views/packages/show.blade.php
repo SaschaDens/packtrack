@@ -32,37 +32,12 @@
 </div>
 <br/>
 <div class="clearfix"></div>
-<div class="panel panel-default">
+<h3 class="panel-title">Package log: {{ $package->tracking_code }}</h3>
+<!--<div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Package log: {{ $package->tracking_code }}</h3>
+
     </div>
-    <div class="panel-body">
-    <!--
-        <div class="log">
-            <div class="road">
-                <span class="glyphicon glyphicon-road"></span>
-            </div>
-            <div class="timeline"></div>
-            <img src="/assets/img/corner.png" class="corner" alt="corner" />
-            <div class="description">
-                <h4>Wednesday 12 februari</h4>
-                <p>Packet is arrived at Brussel</p>
-
-            </div>
-        </div>
-
-        <div class="log">
-            <div class="road">
-                <span class="glyphicon glyphicon-road"></span>
-            </div>
-            <img src="/assets/img/corner.png" class="corner" alt="corner" />
-            <div class="description">
-                Some Text
-            </div>
-
-        </div>
-
-    -->
+    <div class="panel-body">-->
         <div class="containerblog">
             <div class="blogrol">
                 <article>
@@ -70,88 +45,53 @@
                         <p>Jan</p>
                         <p>01</p>
                     </div>
-                    <h1>This is an article1</h1>
+                    <h3>Registration</h3>
 
                     <p>
-                        Arrived in Brussel
+                        The package is registrated in our system.
                     </p>
                 </article>
                 <article>
                     <div class="date">
-                        <p>Feb</p>
-                        <p>12</p>
+                        <p>Jan</p>
+                        <p>03</p>
                     </div>
-                    <h1>This is an article2</h1>
+                    <h3>Arrived in Antwerp</h3>
 
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare dapibus tincidunt. Vestibulum
-                        vitae
-                        sapien quis odio viverra dapibus eu a purus. Class aptent taciti sociosqu ad litora torquent per
-                        conubia
-                        nostra, per inceptos himenaeos. Suspendisse enim tellus, hendrerit ac volutpat eu, elementum quis
-                        lacus.
-                        Etiam eu nibh et leo commodo pulvinar. Ut eu tellus et lorem dapibus sagittis sed at dui. Vestibulum
-                        aliquet
-                        risus ut odio mattis accumsan. Nunc blandit ultrices volutpat. Fusce non metus nulla, condimentum
-                        vestibulum
-                        arcu. Nam at lacinia justo. Ut et erat vitae diam dapibus consequat in eu libero. Vivamus eros
-                        risus,
-                        tincidunt nec fringilla ac, egestas in purus.
+                        Package is arrived at the distribution center in Antwerp.
                     </p>
                 </article>
                 <article>
                     <div class="date">
-                        <p>Apr</p>
-                        <p>15</p>
+                        <p>Jan</p>
+                        <p>05</p>
                     </div>
-                    <h1>This is an article3</h1>
+                    <h3>Arrived in Brussels </h3>
 
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare dapibus tincidunt. Vestibulum
-                        vitae
-                        sapien quis odio viverra dapibus eu a purus. Class aptent taciti sociosqu ad litora torquent per
-                        conubia
-                        nostra, per inceptos himenaeos. Suspendisse enim tellus, hendrerit ac volutpat eu, elementum quis
-                        lacus.
-                        Etiam eu nibh et leo commodo pulvinar. Ut eu tellus et lorem dapibus sagittis sed at dui. Vestibulum
-                        aliquet
-                        risus ut odio mattis accumsan. Nunc blandit ultrices volutpat. Fusce non metus nulla, condimentum
-                        vestibulum
-                        arcu. Nam at lacinia justo. Ut et erat vitae diam dapibus consequat in eu libero. Vivamus eros
-                        risus,
-                        tincidunt nec fringilla ac, egestas in purus.
+                        Package is arrived at the distribution center in Brussels.
                     </p>
                 </article>
                 <article>
                     <div class="date">
-                        <p>May</p>
+                        <p>Jan</p>
 
-                        <p>26</p>
+                        <p>06</p>
                     </div>
-                    <h1>This is an article4</h1>
+                    <h3>On the road</h3>
 
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare dapibus tincidunt. Vestibulum
-                        vitae
-                        sapien quis odio viverra dapibus eu a purus. Class aptent taciti sociosqu ad litora torquent per
-                        conubia
-                        nostra, per inceptos himenaeos. Suspendisse enim tellus, hendrerit ac volutpat eu, elementum quis
-                        lacus.
-                        Etiam eu nibh et leo commodo pulvinar. Ut eu tellus et lorem dapibus sagittis sed at dui. Vestibulum
-                        aliquet
-                        risus ut odio mattis accumsan. Nunc blandit ultrices volutpat. Fusce non metus nulla, condimentum
-                        vestibulum
-                        arcu. Nam at lacinia justo. Ut et erat vitae diam dapibus consequat in eu libero. Vivamus eros
-                        risus,
-                        tincidunt nec fringilla ac, egestas in purus.
+                        Package is on the road.
                     </p>
                 </article>
             </div>
             <div class="clear"></div>
         </div>
 
-    </div>
+   <!-- </div>
 </div>
+-->
 
 <div class="pull-right">
     {{ link_to_action('PackageController@index', 'Return to dashboard') }}

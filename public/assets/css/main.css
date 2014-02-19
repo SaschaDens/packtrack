@@ -90,7 +90,7 @@ footer{
 
 .content article{
     padding-bottom: 10px;
-	border-bottom: 1px solid #eee;
+	/*border-bottom: 1px solid #eee;*/
 }
 
 .navbar-toggle {
@@ -106,6 +106,8 @@ footer{
     padding: 0px;
 
 }
+
+/*----------Package Log -----------*/
 .log{
     position: relative;
     overflow: visible;
@@ -159,7 +161,7 @@ footer{
 /*--------------------Timeline------------*/
 
 .containerblog {
-    background: #ecf0f1;
+    /*background: #ecf0f1;*/
     border: 0px solid #ecf0f1;
     border-radius: 0px;
     padding-top: 40px;
@@ -176,7 +178,7 @@ footer{
     padding: 0 0px 40px 40px;
     border-left: 6px solid #3498db;
 }
-.blogrol h1{
+.blogrol h3{
     margin-top: 0px;
 }
 .date{
@@ -196,7 +198,7 @@ footer{
 
 .blogrol .date {
     left: -32px;
-    top: -22px;
+    top: -5px;
 }
 
 .blogrol article:last-child {
