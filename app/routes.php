@@ -1,5 +1,9 @@
 <?php
 
+/*Event::listen('illuminate.query', function($query){
+    var_dump($query);
+});//*/
+
 // Main Routes
 Route::get('/', 'HomeController@index');
 Route::get('about', 'HomeController@about');
@@ -22,10 +26,9 @@ Route::resource('dashboard', 'UserPackageController');
 // Control panel for admins
 Route::get('cp', 'SupportController@index');
 Route::resource('cp/locations', 'LocationController', array('except' => array('show')));
-Route::get('cp/checkout', 'PackagelogController@checkout');
-Route::resource('cp/checkin', 'PackagelogController');
+Route::resource('cp/scan', 'PackagelogController');
 
-
+// Testing
 Route::get('mail', function(){
-    return View::make('emails.activation');
+    return View::make('emails.mailreceived');
 });

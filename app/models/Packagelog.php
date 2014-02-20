@@ -14,10 +14,9 @@ class Packagelog extends Eloquent {
 
     public static function registered($package_id, $location_id)
     {
-        $result = static::wherePackageId($package_id)->whereLocationId($location_id)->first();
+        $result = static::wherePackageId($package_id)->whereLocationId($location_id)->count();
 
-        if($result) return true;
-        return false;
+        return ($result % 2)? true : false;
     }
 
     public function scopePackage($query, $type)

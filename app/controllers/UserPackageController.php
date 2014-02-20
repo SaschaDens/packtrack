@@ -18,7 +18,6 @@ class UserPackageController extends BaseController {
 	 */
 	public function index()
 	{
-        //http://stackoverflow.com/questions/20913606/laravel-4-1-how-to-paginate-eloquent-eager-relationship
         $packages = Auth::user()->getUserPaginatedAttribute();
         $user = Auth::user();
 
@@ -62,8 +61,9 @@ class UserPackageController extends BaseController {
 	public function show($id)
 	{
         $package = Package::find($id, Auth::user()->id);
+        $logs = $package->packagelog;
 
-        return View::make('userpackages.show', compact('package'));
+        return View::make('userpackages.show', compact('package', 'logs'));
 	}
 
 	/**

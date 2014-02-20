@@ -24,19 +24,8 @@ class PackagelogController extends BaseController {
             ->orderBy('created_at', 'desc')
             ->take(20)
             ->get();
-        return View::make('packagelogs.checkin', compact('location', 'packages'));
+        return View::make('packagelogs.index', compact('location', 'packages'));
 	}
-
-    public function checkout()
-    {
-        $location = Auth::user()->location;
-        $packages = Packagelog::Location($location->id)
-            ->with('package')
-            ->orderBy('created_at', 'desc')
-            ->take(20)
-            ->get();
-        return View::make('packagelogs.checkout', compact('location', 'packages'));
-    }
 
 	/**
 	 * Show the form for creating a new resource.

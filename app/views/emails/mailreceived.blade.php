@@ -19,7 +19,6 @@
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <td>
-                                {{ $tracking }}
                                 <!--<img src="http://www.nightjar.com.au/tests/magic/images/left.gif" alt="" width="100%" height="140" style="display: block;"/>-->
                             </td>
                         </tr>

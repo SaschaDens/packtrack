@@ -53,8 +53,12 @@ class SessionsController extends \BaseController {
 	 */
 	public function destroy()
 	{
-		Auth::logout();
-		return Redirect::to('login')->withSuccess("You've successfully logged out.");
+        if(Auth::user())
+        {
+            Auth::logout();
+            return Redirect::to('login')->withSuccess("You've successfully logged out.");
+        }
+        return Redirect::to('login');
 	}
 
 }

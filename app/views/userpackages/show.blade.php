@@ -40,110 +40,16 @@
     <div class="panel-body">-->
 <div class="containerblog col-md-6 col-md-offset-3">
     <div class="blogrol">
-        <article>
-            <div class="date">
-                <span class="glyphicon glyphicon-tag"></span>
-            </div>
-            <div class="arrow-left"></div>
-            <div class="articleblock">
-                <small class="pull-right">Monday 1 January 2014 08:21</small>
-                <h3>Registration</h3>
-                <p>
-                    The package is registrated in our system.
-                </p>
-            </div>
-        </article>
-        <article>
-            <div class="date">
-                <span class="glyphicon glyphicon-send"></span>
-            </div>
-            <div class="arrow-left"></div>
-            <div class="articleblock">
-                <small class="pull-right">Monday 1 January 2014 08:21</small>
-                <h3>Picked up</h3>
-                <p>
-                    The package is picked up.
-                </p>
-            </div>
-        </article>
-        <article>
-            <div class="date">
-                <span class="glyphicon glyphicon-road"></span>
-            </div>
-            <div class="arrow-left"></div>
-            <div class="articleblock">
-                <small class="pull-right">Monday 1 January 2014 08:21</small>
-                <h3>On the road</h3>
-                <p>
-                    The package is on the road.
-                </p>
-            </div>
-        </article>
-        <article>
-            <div class="date">
-                <span class="glyphicon glyphicon-inbox"></span>
-            </div>
-            <div class="arrow-left"></div>
-            <div class="articleblock">
-                <small class="pull-right">Monday 1 January 2014 08:21</small>
-                <h3>Arrived in Antwerp</h3>
-                <p>
-                    Package is arrived at the distribution center in Antwerp.
-                </p>
-            </div>
-        </article>
-        <article>
-            <div class="date">
-                <span class="glyphicon glyphicon-road"></span>
-            </div>
-            <div class="arrow-left"></div>
-            <div class="articleblock">
-                <small class="pull-right">Monday 1 January 2014 08:21</small>
-                <h3>On the road</h3>
-                <p>
-                    Package is on the road.
-                </p>
-            </div>
-        </article>
-        <article>
-            <div class="date">
-                <span class="glyphicon glyphicon-inbox"></span>
-            </div>
-            <div class="arrow-left"></div>
-            <div class="articleblock">
-                <small class="pull-right">Monday 1 January 2014 08:21</small>
-                <h3>Arrived in Brussels </h3>
-                <p>
-                    Package is arrived at the distribution center in Brussels.
-                </p>
-            </div>
-        </article>
-        <article>
-            <div class="date">
-                <span class="glyphicon glyphicon-road"></span>
-            </div>
-            <div class="arrow-left"></div>
-            <div class="articleblock">
-                <small class="pull-right">Monday 1 January 2014 08:21</small>
-                <h3>On the road</h3>
-                <p>
-                    Package is on the road.
-                </p>
-            </div>
-        </article>
-        <article>
-            <div class="date">
-                <span class="glyphicon glyphicon-ok"></span>
-            </div>
-            <div class="arrow-left"></div>
-            <div class="articleblock">
-                <small class="pull-right">Monday 1 January 2014 08:21</small>
-                <h3>Arrived on destination</h3>
-                <p>
-                    Package is on the destination.
-                </p>
-            </div>
-        </article>
+        {{ HTML::package_log('registration', $package->created_at, 'OK') }}
+        @foreach($logs as $log)
+            @if($log->status)
+                {{ HTML::package_log('arrived', $log->created_at, 'OK') }}
+            @else
+                {{ HTML::package_log('road', $log->created_at, 'OK') }}
+            @endif
+        @endforeach
+
+        {{ HTML::package_log('recieved', $package->updated_at, 'Enjoy your stuff!') }}
     </div>
     <div class="clear"></div>
 </div>

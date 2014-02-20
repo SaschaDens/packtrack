@@ -62,17 +62,17 @@ class UsersTableSeeder extends Seeder {
         ));
 
         User::create(array(
-        'first_name'    =>  'Brent',
-        'last_name'     =>  'De Pauw',
-        'email'         =>  'brent@packandtrack.be',
-        'password'      =>  'abc123!',
-        'activation_key'    => Generate::activation_key(),
-        'activated'        =>  1,
-        'country'       =>  'BE',
-        'city'          =>  $faker->city,
-        'postal_code'   =>  '2260',
-        'address'       =>  $faker->address
-    ));
+            'first_name'    =>  'Brent',
+            'last_name'     =>  'De Pauw',
+            'email'         =>  'brent@packandtrack.be',
+            'password'      =>  'abc123!',
+            'activation_key'    => Generate::activation_key(),
+            'activated'        =>  1,
+            'country'       =>  'BE',
+            'city'          =>  $faker->city,
+            'postal_code'   =>  '2260',
+            'address'       =>  $faker->address
+        ));
 
         User::create(array(
             'first_name'    =>  'Support',
@@ -86,23 +86,8 @@ class UsersTableSeeder extends Seeder {
             'city'          =>  $faker->city,
             'postal_code'   =>  '2260',
             'address'       =>  $faker->address,
-            'location_id'       =>  '2'
+            'location_id'       =>  '3'
         ));
-
-        /*foreach(range(1, 20) as $index)
-        {
-            User::create(array(
-                'first_name'    =>  $faker->firstName,
-                'last_name'     =>  $faker->lastName,
-                'email'         =>  $faker->email,
-                'password'      =>  'Yey',
-                'activation_key'    => Generate::activation_key(),
-                'country'       =>  $faker->country,
-                'city'          =>  $faker->city,
-                'postal_code'   =>  $faker->postcode,
-                'address'       => $faker->address
-            ));
-        }//*/
 
 		// Uncomment the below to run the seeder
 		// DB::table('users')->insert($users);

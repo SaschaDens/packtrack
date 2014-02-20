@@ -30,6 +30,42 @@ Form::macro('bt_button', function($name, $attr = array())
     return bt_wrapper($element, $name);
 });
 
+HTML::macro('package_log', function($type, $date, $message){
+    $config = typeGenerator($type);
+
+    $out = '<article><div class="date"><span class="glyphicon ' . $config['icon'] . '"></span></div>';
+    $out .= '<div class="arrow-left"></div><div class="articleblock">';
+    $out .= "<small class=\"pull-right\">$date</small>";
+    $out .= '<h3>' . $config['title'] . '</h3>';
+    $out .= "<p>$message</p>";
+    $out .= '</div></article>';
+    return $out;
+});
+
+function typeGenerator($type){
+    $out = "";
+    switch($type)
+    {
+        case 'registration':
+            $out = array('icon' => 'glyphicon-tag', 'title' => 'Package Registered');
+            break;
+        case 'pickup':
+            $out = array('icon' => 'glyphicon-send', 'title' => 'Package in pickup center');
+            break;
+        case 'road':
+            $out = array('icon' => 'glyphicon-road', 'title' => 'Package on the road');
+            break;
+        case 'arrived':
+            $out = array('icon' => 'glyphicon-inbox', 'title' => 'Package Arrived');
+            break;
+        case 'recieved':
+            $out = array('icon' => 'glyphicon-ok', 'title' => 'Arrived on destination');
+            break;
+    }
+
+    return $out;
+}
+
 function getLabel($name, $label)
 {
 	if(isset($label))
