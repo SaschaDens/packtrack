@@ -15,7 +15,7 @@
     <tr>
         <td>{{ $package->package->tracking_code }}</td>
         <td>{{ $package->created_at }}</td>
-        <td>CHECKIN / CHECKOUT</td>
+        <td>{{ ((bool)$package->status)? "Checkin":"Checkout" }}</td>
     </tr>
     @endforeach
     </tbody>
