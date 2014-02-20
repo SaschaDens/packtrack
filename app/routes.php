@@ -4,6 +4,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('about', 'HomeController@about');
 Route::get('contact', 'HomeController@contact');
+Route::post('contact', 'HomeController@postContact');
 
 // Login / Logout handler
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));

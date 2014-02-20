@@ -18,11 +18,15 @@ class PackagelogCreatorService {
     {
         if($this->validator->isValid($attributes))
         {
+            $package_id = $package->id;
+            $location_id = Auth::user()->location->id;
+            $status = (Packagelog::registered($package_id, $location_id))? 0 : 1;
+
             Packagelog::create(array(
-                'package_id'    =>  $package->id,
-                'status'    =>  1,
-                'description'   =>  'Test',
-                'location_id'   =>  Auth::user()->location->id
+                'package_id'    =>  $package_id,
+                'status'    =>  $status,
+                //'description'   =>  $attributes['description'],
+                'location_id'   =>  $location_id
             ));
 
             return true;

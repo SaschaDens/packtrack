@@ -4,7 +4,7 @@ use Mail;
 
 abstract class Mailer {
 
-    public function sendTo($user, $subject, $view, $data = array())
+    public function sendToUser($user, $subject, $view, $data = array())
     {
         Mail::queue($view, $data, function($message) use($user, $subject)
         {
@@ -13,4 +13,12 @@ abstract class Mailer {
         });
     }
 
+    public function sendToMail($email, $subject, $view, $data = array())
+    {
+        Mail::queue($view, $data, function($message) use($email, $subject)
+        {
+            $message->to($email)
+                ->subject($subject);
+        });
+    }
 }

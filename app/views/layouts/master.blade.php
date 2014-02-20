@@ -55,7 +55,8 @@
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
-    </header>
+   </header>
+    <div id="wrap"><div id="main">
     <div class="content">
         <div class="container">
 
@@ -81,7 +82,7 @@
             @yield('content')
         </div>
     </div>
-    <div class="push"></div>
+        </div></div>
     <footer>
         <div class="container">
                 <div class="col-md-4">

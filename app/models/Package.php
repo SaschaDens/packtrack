@@ -42,6 +42,11 @@ class Package extends Eloquent {
         return $this->belongsTo('User');
     }
 
+    public function packagelog()
+    {
+        return $this->hasMany('Packagelog');
+    }
+
     public function scopeTrackingcode($query, $type)
     {
         return $query->whereTracking_code($type);

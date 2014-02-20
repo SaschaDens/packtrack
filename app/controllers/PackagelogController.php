@@ -17,14 +17,25 @@ class PackagelogController extends BaseController {
 	 */
 	public function index()
 	{
+        //Packagelog::registered(1,2)
         $location = Auth::user()->location;
-        return View::make('packagelogs.checkin', compact('location'));
+        $packages = Packagelog::Location($location->id)
+            ->with('package')
+            ->orderBy('created_at', 'desc')
+            ->take(20)
+            ->get();
+        return View::make('packagelogs.checkin', compact('location', 'packages'));
 	}
 
     public function checkout()
     {
         $location = Auth::user()->location;
-        return View::make('packagelogs.checkout', compact('location'));
+        $packages = Packagelog::Location($location->id)
+            ->with('package')
+            ->orderBy('created_at', 'desc')
+            ->take(20)
+            ->get();
+        return View::make('packagelogs.checkout', compact('location', 'packages'));
     }
 
 	/**
@@ -44,7 +55,6 @@ class PackagelogController extends BaseController {
 	 */
 	public function store()
 	{
-        //$package = Package::trackingcode($input)->firstOrFail();
         try
         {
             $package = Package::trackingcode(Input::get('tracking_code'))->firstOrFail();

@@ -44,12 +44,14 @@ class UsersController extends BaseController {
         try
         {
             $this->userCreator->make(Input::all());
+            $user = User::whereEmail(Input::get('email'));
+            $this->mailer->welcome($user);
         } catch(Packtrack\Exceptions\ValidationException $e)
         {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }
 
-        return Redirect::action('SessionsController@create')->withSuccess('An email has been sended. Please confirm you account.');
+        return Redirect::action('SessionsController@create')->withSuccess('An email has been sended. Please confirm your account.');
 	}
 
 	/**

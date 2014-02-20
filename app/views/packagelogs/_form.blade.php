@@ -1,2 +1,2 @@
-{{ Form::bt_text('tracking_code', null, 'Tracking Code', array('class' => 'input-lg', 'placeholder' => 'Tracking code', 'tabindex' => '1', 'maxlength' => '13')) }}
+{{ Form::bt_text('tracking_code', null, 'Tracking Code', array('class' => 'input-lg', 'placeholder' => 'Tracking code', 'tabindex' => '1', 'maxlength' => '13', 'autofocus'=>'')) }}
 {{ Form::bt_button('Register', array('class' => 'btn-success btn-block btn-lg', 'tabindex' => '2')) }}

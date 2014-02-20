@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Demystifying Email Design</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
@@ -36,13 +35,15 @@
                                         <tr>
                                             <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
                                                 <a href="http://www.twitter.com/" style="color: #ffffff;">
-                                                    <img src="http://www.nightjar.com.au/tests/magic/images/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0"/>
+                                                    <!--<img src="http://www.nightjar.com.au/tests/magic/images/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0"/>-->
+                                                    {{ HTML::image('assets/img/tw.gif', null, array('alt' => 'Pack&Track Twitter')) }}
                                                 </a>
                                             </td>
                                             <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
                                             <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
                                                 <a href="http://www.twitter.com/" style="color: #ffffff;">
-                                                    <img src="http://www.nightjar.com.au/tests/magic/images/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0"/>
+                                                    <!--<img src="http://www.nightjar.com.au/tests/magic/images/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0"/>-->
+                                                    {{ HTML::image('assets/img/fb.gif', null, array('alt' => 'Pack&Track Facebook')) }}
                                                 </a>
                                             </td>
                                         </tr>

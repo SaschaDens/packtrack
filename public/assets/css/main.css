@@ -1,12 +1,36 @@
-* {
-    margin:0;
-    padding:0;
-}
 
 body {
 	background: #ffffff;
 	color: #393e46;
     height: 100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+#wrap {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto -100px;
+    /* Pad bottom by footer height */
+    padding: 0 0 100px;
+}
+
+#main {
+    overflow:auto;
+    padding-bottom: 100px;
+}  /* must be same height as the footer */
+
+
+footer {
+    position: relative;
+    margin-top: -100px; /* negative value of footer height */
+    height: 100px;
+    clear:both;
 }
 
 a{
@@ -42,6 +66,7 @@ header {
     background-image: -webkit-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
     background-image: -ms-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
     background-image: linear-gradient(to left bottom, #3498DB 0%, #2980B9 100%);
+
 }
 .navbar{
     margin: 0px;
@@ -85,19 +110,21 @@ header nav li {
 
 
 footer{
+    position: relative;
 	padding: 40px;
     height: 100px;
-    border-bottom: 1px solid #000000 ;
-    background-color: #ee4c50
+    border-bottom: 0px solid #000000 ;
+    background-color: #ee4c50;
+    clear:both;
+
 }
 
-/*
-.navbar-fixed-bottom{
+
+/*.navbar-fixed-bottom{
     height: 100px;
-}*/
-
-
-/*Sticky Footer Toevoegen!!!!!!!!*/
+    background-color: #ffff00;
+}
+*/
 
 .content {
     position: relative;
@@ -125,52 +152,10 @@ footer{
 
 }
 
-/*----------Package Log -----------
-.log{
-    position: relative;
-    overflow: visible;
-    width: 100%;
-    margin-bottom: 0px;
-    height: 200px;
 
-}
-.road{
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-color: #2ecc71;
-    text-align: center;
-    border-radius: 25px;
-    line-height: 50px;
-    z-index: 100;
-}
-.description{
-    position: absolute;
-    display: block;
-    background-color: #E3E6E7;
-    left: 80px;
-    height: 100px;
-    top: 0px;
-    width: 93%;
-    float: left;
-    margin-top: 0px;
-    padding: 0px 15px;
-}
+/*--------------------Package Log --------------*/
 
-
-
-.timeline{
-    display: block;
-    position: relative;
-    background-color: #E3E6E7;
-    height: 100%;
-    width: 10px;
-    left: 20px;
-
-}
-*/
-
-/*--------------------Timeline------------*/
+/*--------------------Timeline------------------*/
 
 .containerblog {
     /*background: #ecf0f1;*/
