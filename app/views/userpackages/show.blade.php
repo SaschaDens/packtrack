@@ -40,7 +40,7 @@
     <div class="panel-body">-->
 <div class="containerblog col-md-6 col-md-offset-3">
     <div class="blogrol">
-        {{ HTML::package_log('registration', $package->created_at, 'OK') }}
+        {{ HTML::package_log('registration', $package->created_at, 'Deliver this package to a location nearby. We handle it further.') }}
         @foreach($logs as $log)
             @if($log->status)
                 {{ HTML::package_log('arrived', $log->created_at, 'OK') }}
@@ -48,8 +48,9 @@
                 {{ HTML::package_log('road', $log->created_at, 'OK') }}
             @endif
         @endforeach
-
-        {{ HTML::package_log('recieved', $package->updated_at, 'Enjoy your stuff!') }}
+        @if($package->status_code == 4)
+            {{ HTML::package_log('recieved', $package->updated_at, 'Enjoy your stuff!') }}
+        @endif
     </div>
     <div class="clear"></div>
 </div>

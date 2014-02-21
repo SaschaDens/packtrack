@@ -2,16 +2,19 @@
 
 use Packtrack\Validators\PackagelogValidator;
 use Packtrack\Exceptions\ValidationException;
+use Packtrack\Mailers\PackageMailer;
 use Packagelog;
 use Auth;
 
 class PackagelogCreatorService {
 
     protected $validator;
+    protected $mailer;
 
-    public function __construct(PackagelogValidator $validator)
+    public function __construct(PackagelogValidator $validator, PackageMailer $mailer)
     {
         $this->validator = $validator;
+        $this->mailer = $mailer;
     }
 
     public function make($package, array $attributes)
@@ -28,6 +31,12 @@ class PackagelogCreatorService {
                 //'description'   =>  $attributes['description'],
                 'location_id'   =>  $location_id
             ));
+            if($package->status_code == 0)
+            {
+                $this->mailer->trackingCode($package);
+                $package->status_code = 1;
+                $package->save();
+            }
 
             return true;
         }

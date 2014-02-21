@@ -27,6 +27,7 @@ class ApiController extends BaseController {
                 DB::raw('u.city as sender_city'),
                 DB::raw('u.address as sender_address'),
                 DB::raw('u.postal_code as sender_postal_code'),
+                DB::raw('package.reciever_name as to_reciever'),
                 DB::raw('package.country as to_country'),
                 DB::raw('package.address as to_address'),
                 DB::raw('package.postal_code as to_postal_code'),

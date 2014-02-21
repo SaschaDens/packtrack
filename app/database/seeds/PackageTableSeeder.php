@@ -12,6 +12,7 @@ class PackageTableSeeder extends Seeder {
         {
             Package::create(array(
                 'user_id'     => $faker->randomNumber(1, 5),
+                'reciever_name'       =>  $faker->name,
                 'country'    =>  'BE',
                 'city'       =>  $faker->city,
                 'address'    =>  $faker->address,

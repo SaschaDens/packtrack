@@ -21,10 +21,10 @@ class CreatePackageTable extends Migration {
             $table->string('address');
             $table->string('postal_code');
             $table->string('tracking_code')->unique();
+            $table->string('reciever_name');
             $table->string('reciever_mail')->nullable();
             $table->string('description')->nullable();
 
-            // Code indicates the current state of package. 0 = Not in distrubution yet. 1 = trackable, 2 = delivered;
             $table->integer('status_code')->default(0);
 
 			$table->timestamps();

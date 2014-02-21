@@ -3,6 +3,7 @@
 class PackageValidator extends Validator{
     protected static $rules = array(
         'client_id'     =>  '',
+        'reciever_name'    =>  'required',
         'country'    =>  'required',
         'city'       =>  'required',
         'address'    =>  'required',
