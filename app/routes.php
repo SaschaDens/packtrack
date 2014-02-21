@@ -10,6 +10,9 @@ Route::get('about', 'HomeController@about');
 Route::get('contact', 'HomeController@contact');
 Route::post('contact', 'HomeController@postContact');
 
+Route::get('tracking', 'HomeController@getTracking');
+Route::post('tracking', 'HomeController@postTracking');
+
 // Login / Logout handler
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 Route::get('logout', 'SessionsController@destroy');

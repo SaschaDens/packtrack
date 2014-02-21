@@ -30,14 +30,14 @@ Form::macro('bt_button', function($name, $attr = array())
     return bt_wrapper($element, $name);
 });
 
-HTML::macro('package_log', function($type, $date, $message){
+HTML::macro('package_log', function($type, $date, $message, $map = null){
     $config = typeGenerator($type);
 
     $out = '<article><div class="date"><span class="glyphicon ' . $config['icon'] . '"></span></div>';
     $out .= '<div class="arrow-left"></div><div class="articleblock">';
     $out .= "<small class=\"pull-right\">$date</small>";
     $out .= '<h3>' . $config['title'] . '</h3>';
-    $out .= "<p>$message</p>";
+    $out .= '<p>' . $message . '</p>';
     $out .= '</div></article>';
     return $out;
 });

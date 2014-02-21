@@ -21,6 +21,6 @@ class ContactCreatorService {
             return true;
         }
 
-        throw new ValidationException('Task validation failed', $this->validator->getErrors());
+        throw new ValidationException('Contact validation failed', $this->validator->getErrors());
     }
 }

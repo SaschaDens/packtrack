@@ -58,10 +58,6 @@
     <div class="clear"></div>
 </div>
 
-   <!-- </div>
-</div>
--->
-
 <div class="pull-right">
     {{ link_to_action('PackageController@index', 'Return to dashboard') }}
 </div>
