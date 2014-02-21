@@ -19,7 +19,7 @@ class PackagelogController extends BaseController {
 	{
         //Packagelog::registered(1,2)
         $location = Auth::user()->location;
-        $packages = Packagelog::Location($location->id)
+        $packages = Packagelog::Locations($location->id)
             ->with('package')
             ->orderBy('created_at', 'desc')
             ->take(20)

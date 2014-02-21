@@ -28,7 +28,7 @@ class Package extends Eloquent {
 
     public static function find($package_id, $userID = null)
     {
-        $package = Static::with('user')->findOrFail($package_id);
+        $package = Static::with('user')->find($package_id);
 
         if($userID and $package->user->id !== $userID)
         {

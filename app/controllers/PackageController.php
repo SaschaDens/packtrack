@@ -61,8 +61,7 @@ class PackageController extends BaseController {
 	public function show($id)
 	{
         $package = Package::find($id, Auth::user()->id);
-        $logs = $package->with('packagelog.location')->get();
-        //return $logs;
+        $logs = Packagelog::wherePackageId($package->id)->with('location')->get();
 
         return View::make('packages.show', compact('package', 'logs'));
 	}

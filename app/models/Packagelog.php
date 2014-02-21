@@ -29,7 +29,7 @@ class Packagelog extends Eloquent {
         return $query->wherePackage_id($type);
     }
 
-    public function scopeLocation($query, $type)
+    public function scopeLocations($query, $type)
     {
         return $query->whereLocation_id($type);
     }

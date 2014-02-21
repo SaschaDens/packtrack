@@ -45,11 +45,10 @@
     <div class="blogrol">
         {{ HTML::package_log('registration', $package->created_at, 'Deliver this package to a location nearby. We handle it further.') }}
         @foreach($logs as $log)
-        {{  var_dump($log->packagelog->first()->toArray()) }}
             @if($log->status)
-                {{ HTML::package_log('arrived', $log->created_at, 'location in GEEL') }}
+                {{ HTML::package_log('arrived', $log->created_at, 'Package is scanned at our distribution center in ' . $log->location->city) }}
             @else
-                {{ HTML::package_log('road', $log->created_at, 'OK') }}
+                {{ HTML::package_log('road', $log->created_at,  'Your Package just left our distribution center in ' . $log->location->city) }}
             @endif
         @endforeach
         @if($package->status_code == 4)
