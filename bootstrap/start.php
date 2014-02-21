@@ -26,6 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 	'live' => array('apollo'),
+    //'live' => array('HADES'),
 ));
 
 /*

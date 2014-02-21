@@ -15,4 +15,9 @@ class Location extends Eloquent {
     {
         return $this->hasMany('User');
     }
+
+    public function packagelog()
+    {
+        return $this->hasMany('Packagelog');
+    }
 }

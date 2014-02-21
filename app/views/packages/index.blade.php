@@ -8,7 +8,7 @@
         Welcome, {{ $user->email }} {{ link_to_action('SessionsController@destroy', 'Logout') }}
     </div>
     <h3>Quick Settings</h3>
-    {{ link_to_action('UserPackageController@create', 'Create new package') }}
+    {{ link_to_action('PackageController@create', 'Create new package') }}
     <p>Mail Versturen naar ontvanger nadat het bij een locatie is binnengebracht</p>
     <h3>Packages</h3>
     <table class="table table-hover">
@@ -27,7 +27,7 @@
             @foreach($packages as $package)
                 <tr>
                     <td>{{ $package->created_at }}</td>
-                    <td>{{ link_to_action('UserPackageController@show', $package->tracking_code, array($package->id)) }}</td>
+                    <td>{{ link_to_action('PackageController@show', $package->tracking_code, array($package->id)) }}</td>
                     <td>{{ $package->address }}</td>
                     <td>{{ $package->postal_code }}</td>
                     <td>{{ $package->city }}</td>

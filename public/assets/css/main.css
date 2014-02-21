@@ -26,12 +26,7 @@ html {
 }  /* must be same height as the footer */
 
 
-footer {
-    position: relative;
-    margin-top: -100px; /* negative value of footer height */
-    height: 100px;
-    clear:both;
-}
+
 
 a{
 	color: #3498db;	
@@ -109,7 +104,7 @@ header nav li {
 
 
 
-footer{
+/*footer{
     position: relative;
 	padding: 40px;
     height: 100px;
@@ -117,6 +112,51 @@ footer{
     background-color: #ee4c50;
     clear:both;
 
+}*/
+
+footer {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    z-index: 2000;
+    background-color: rgba(238, 76, 80, 1);
+
+}
+#footerbutton {
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    width:100%;
+    height:20px;
+    border: none;
+    cursor: pointer;
+    background: rgba(238, 76, 80, 0.5) ;
+}
+#footerbutton div {
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+}
+
+#footerbutton img.left{
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 5px;
+    border:none;
+}
+#footerbutton img.right{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    border:none;
+}
+
+#footercontent {
+    width: 100%;
+    height: 0px;
+    border: none;
 }
 
 

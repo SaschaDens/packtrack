@@ -21,7 +21,7 @@ Route::get('api/tracking/{tracking_key}', 'ApiController@getTracking');
 
 // Resources
 Route::resource('register', 'UsersController');
-Route::resource('dashboard', 'UserPackageController');
+Route::resource('dashboard', 'PackageController');
 
 // Control panel for admins
 Route::get('cp', 'SupportController@index');
@@ -29,6 +29,13 @@ Route::resource('cp/locations', 'LocationController', array('except' => array('s
 Route::resource('cp/scan', 'PackagelogController');
 
 // Testing
+Route::get('maps', function(){
+    return View::make('maps.index');
+});
 Route::get('mail', function(){
-    return View::make('emails.mailreceived');
+    $mailer = new Packtrack\Mailers\PackageMailer;
+    $package = Package::find(1);
+    $mailer->trackingCode($package);
+
+    return "Mail Verstuurd";
 });

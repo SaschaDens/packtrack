@@ -12,6 +12,6 @@ class UserMailer extends Mailer {
         );
         $subject = 'Welcome to PackAndTrack';
 
-        return $this->sendToUser($user, $subject, $view, $data);
+        return $this->sendTo($user, $subject, $view, $data);
     }
 }

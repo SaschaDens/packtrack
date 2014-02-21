@@ -11,6 +11,9 @@
             <dt></dt>
             <dd>{{ $package->postal_code . ' ' . $package->city }}</dd>
 
+            <dt>Reciever name</dt>
+            <dd>{{ $package->reciever_name }}</dd>
+
             <dt>Country</dt>
             <dd>{{ $package->country }}</dd>
 
@@ -42,8 +45,9 @@
     <div class="blogrol">
         {{ HTML::package_log('registration', $package->created_at, 'Deliver this package to a location nearby. We handle it further.') }}
         @foreach($logs as $log)
+        {{  var_dump($log->packagelog->first()->toArray()) }}
             @if($log->status)
-                {{ HTML::package_log('arrived', $log->created_at, 'OK') }}
+                {{ HTML::package_log('arrived', $log->created_at, 'location in GEEL') }}
             @else
                 {{ HTML::package_log('road', $log->created_at, 'OK') }}
             @endif
@@ -60,6 +64,6 @@
 -->
 
 <div class="pull-right">
-    {{ link_to_action('UserPackageController@index', 'Return to dashboard') }}
+    {{ link_to_action('PackageController@index', 'Return to dashboard') }}
 </div>
 @stop

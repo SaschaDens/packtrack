@@ -12,6 +12,11 @@ class Packagelog extends Eloquent {
         return $this->belongsTo('Package');
     }
 
+    public function location()
+    {
+        return $this->belongsTo('Location');
+    }
+
     public static function registered($package_id, $location_id)
     {
         $result = static::wherePackageId($package_id)->whereLocationId($location_id)->count();

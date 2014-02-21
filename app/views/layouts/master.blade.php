@@ -13,6 +13,7 @@
     {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css') }}
     @yield('styles')
     {{ HTML::style('assets/css/main.css') }}
+
     <script>
         var URL = {
             'base' : '{{ URL::to('/') }}',
@@ -84,7 +85,13 @@
     </div>
         </div></div>
     <footer>
-        <div class="container">
+        <div id="footerbutton"><div><img src="/assets/img/up.gif" width="11" height="8" class="left"><img src="/assets/img/up.gif" width="11" height="8" class="right"></div></div>
+        <div id="footercontent">
+            <div id="footercontenttext">
+                bla bla
+            </div>
+        </div>
+        <!--<div class="container">
                 <div class="col-md-4">
 
                 </div>
@@ -96,7 +103,7 @@
                     </ul>
                 </div>
 
-        </div>
+        </div>-->
     </footer>
     <!-- scripts -->
     {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js') }}

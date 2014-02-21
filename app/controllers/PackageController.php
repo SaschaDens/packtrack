@@ -1,12 +1,12 @@
 <?php
 use \Packtrack\Services\PackageCreatorService;
-class UserPackageController extends BaseController {
+class PackageController extends BaseController {
 
     protected $packageCreator;
     function __construct(PackageCreatorService $packageCreator)
     {
         $this->beforeFilter('auth');
-        $this->beforeFilter('redirectAdmin');
+        //$this->beforeFilter('redirectAdmin');
 
         $this->packageCreator = $packageCreator;
     }
@@ -21,7 +21,7 @@ class UserPackageController extends BaseController {
         $packages = Auth::user()->getUserPaginatedAttribute();
         $user = Auth::user();
 
-        return View::make('userpackages.index', compact('packages', 'user'));
+        return View::make('packages.index', compact('packages', 'user'));
 	}
 
 	/**
@@ -31,7 +31,7 @@ class UserPackageController extends BaseController {
 	 */
 	public function create()
 	{
-        return View::make('userpackages.create');
+        return View::make('packages.create');
 	}
 
 	/**
@@ -49,7 +49,7 @@ class UserPackageController extends BaseController {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }
 
-        return Redirect::action('UserPackageController@index')->withSuccess('Package successfully created');
+        return Redirect::action('PackageController@index')->withSuccess('Package successfully created');
 	}
 
 	/**
@@ -61,9 +61,10 @@ class UserPackageController extends BaseController {
 	public function show($id)
 	{
         $package = Package::find($id, Auth::user()->id);
-        $logs = $package->packagelog;
+        $logs = $package->with('packagelog.location')->get();
+        //return $logs;
 
-        return View::make('userpackages.show', compact('package', 'logs'));
+        return View::make('packages.show', compact('package', 'logs'));
 	}
 
 	/**
@@ -74,7 +75,7 @@ class UserPackageController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('userpackages.edit');
+        return View::make('packages.edit');
 	}
 
 	/**
