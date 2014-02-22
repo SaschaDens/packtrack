@@ -20,7 +20,7 @@ class ApiController extends BaseController {
     {
         $package = Package::whereTracking_code($key)
             ->leftJoin('users as u', 'package.user_id', '=', 'u.id')
-            ->firstOrFail(array(
+            ->first(array(
                 DB::raw("concat(u.first_name, ' ', u.last_name) as sender_name"),
                 DB::raw('u.email as sender_email'),
                 DB::raw('u.country as sender_country'),
@@ -36,6 +36,22 @@ class ApiController extends BaseController {
                 DB::raw('package.created_at as sended_at')
             ));
 
-        return $package;
+        if(!$package)
+        {
+            return Response::json(array(
+                "errors"    =>  "Tracking key does not exist"
+            ), 404);
+        }
+
+        return Response::json(array(
+            "Package"   =>  $package->toArray()
+        ), 200);
+
+        //return $package;
+    }
+
+    public function getLocations()
+    {
+
     }
 }

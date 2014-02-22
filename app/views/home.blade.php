@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master-new')
 
 @section('title', 'Pack And Track')
 
