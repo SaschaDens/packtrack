@@ -52,6 +52,18 @@ class ApiController extends BaseController {
 
     public function getLocations()
     {
+        // 1 DAG CACHE!!
+        $locations = Location::distribution()->remember(60*24)->get();
 
+        if(!$locations)
+        {
+            return Response::json(array(
+                "errors"    =>  "No locations found."
+            ), 404);
+        }
+
+        return Response::json(array(
+            "Locations"   =>  $locations->toArray()
+        ), 200);
     }
 }

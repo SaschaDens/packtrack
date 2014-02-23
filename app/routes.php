@@ -6,6 +6,7 @@
 
 // Main Routes
 Route::get('/', 'HomeController@index');
+Route::get('locations', 'HomeController@getLocations');
 Route::get('about', 'HomeController@about');
 Route::get('contact', 'HomeController@contact');
 Route::post('contact', 'HomeController@postContact');
@@ -20,6 +21,7 @@ Route::resource('sessions', 'SessionsController', array('only' => array('create'
 
 // API ANDROID
 Route::get('api', 'ApiController@index');
+Route::get('api/locations', 'ApiController@getLocations');
 Route::get('api/tracking/{tracking_key}', 'ApiController@getTracking');
 
 // Resources

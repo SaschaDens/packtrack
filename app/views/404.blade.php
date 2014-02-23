@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-    404 ERROR
+    <div class="missing-page">
+        <h1>404</h1>
+        <p>Not Found</p>
+    </div>
 @stop

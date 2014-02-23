@@ -1,21 +1,48 @@
-@extends('layouts.master-new')
+@extends('layouts.master')
 
 @section('title', 'Pack And Track')
 
 @section('content')
-    <div class="page-header">
-        <h2>Home</h2>
-    </div>
-    <article>
-        <h2>Lorum Ipsum</h2>
-        <span class="meta">Saturday 20/14</span>
-        <div class="post-body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<div class="row">
+    <div class="col-md-3">
+        <div class="info-box slideLeft">
+            <span class="glyphicon glyphicon-phone fadeIn"></span>
+            <h3>Mobile App</h3>
+            <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            </p>
         </div>
-    </article>
+    </div>
+    <div class="col-md-3">
+        <div class="info-box slideLeft">
+            <span class="glyphicon glyphicon-send fadeIn"></span>
+            <h3>Web Design</h3>
+            <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            </p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="info-box slideLeft">
+            <span class="glyphicon glyphicon-time fadeIn"></span>
+            <h3>Fast Service</h3>
+            <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            </p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="info-box slideLeft">
+            <span class="glyphicon glyphicon-screenshot fadeIn"></span>
+            <h3>Tracking</h3>
+            <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            </p>
+        </div>
+    </div>
+</div>
 @stop

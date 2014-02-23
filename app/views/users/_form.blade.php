@@ -36,6 +36,6 @@
 </div>
 <hr/>
 
-{{ Form::bt_button('Register', array('class' => 'btn-success btn-block btn-lg', 'tabindex' => '10')) }}
+{{ Form::bt_button('Register', array('class' => 'btn-pack btn-block btn-lg', 'tabindex' => '10')) }}
 
 <p>{{ link_to_action('SessionsController@create', 'Already have an account? Sign in here', null, array('class' => '', 'tabindex' => '11')) }}</p>

@@ -31,7 +31,7 @@
             {{ Form::textarea('question', null, array('class' => 'form-control input-lg', 'placeholder' => 'Your question...', 'tabindex' => '4')) }}
         </div>
 
-        {{ Form::submit('Send', array('class' => 'btn btn-primary btn-block btn-lg', 'tabindex' => '10')) }}
+        {{ Form::submit('Send', array('class' => 'btn btn-pack btn-block btn-lg', 'tabindex' => '10')) }}
 
 
     {{ Form::close() }}

@@ -9,7 +9,7 @@ class HomeController extends BaseController {
     protected $trackingSearch;
     public function __construct(ContactCreatorService $contactCreator, TrackingSearcherService $trackingSearch)
     {
-        $this->trackingSearch = $contactCreator;
+        $this->contactCreator = $contactCreator;
         $this->trackingSearch = $trackingSearch;
     }
 
@@ -61,5 +61,11 @@ class HomeController extends BaseController {
         }
 
         return View::make('results', compact('package', 'logs', 'counter'))->withSuccess("Thanks for contacting us, we will contact you as soon as possible!");
+    }
+
+    public function getLocations()
+    {
+        $locations = Location::Distribution()->get();
+        return View::make('locations', compact('locations'));
     }
 }

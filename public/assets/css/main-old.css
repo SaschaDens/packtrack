@@ -1,0 +1,273 @@
+
+body {
+	background: #ffffff;
+	color: #393e46;
+    height: 100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+#wrap {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto -100px;
+    /* Pad bottom by footer height */
+    padding: 0 0 100px;
+}
+
+#main {
+    overflow:auto;
+    padding-bottom: 100px;
+}  /* must be same height as the footer */
+
+
+a{
+	color: #3498db;	
+}
+
+header a{
+	color:#fff;
+}
+
+header a:hover,
+header a:active {
+	text-decoration: none;
+	color: #ddd;
+}
+
+header .active {
+	background: rgba(102, 102, 102, 0.40);
+	border-radius: 8px;
+	/*padding: 10px 5px;*/
+}
+
+header {
+    background-image: -webkit-gradient(
+        linear,
+        right top,
+        left bottom,
+        color-stop(0, #3498DB),
+        color-stop(1, #2980B9)
+    );
+    background-image: -o-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
+    background-image: -moz-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
+    background-image: -webkit-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
+    background-image: -ms-linear-gradient(left bottom, #3498DB 0%, #2980B9 100%);
+    background-image: linear-gradient(to left bottom, #3498DB 0%, #2980B9 100%);
+
+}
+.navbar{
+    margin: 0px;
+    border-radius:0px;
+}
+
+header h1{
+	margin: 0;
+}
+
+header .navbar-brand{
+	zoom: 0.8;
+    height: 0;
+    padding-bottom: 150px;
+}
+
+header .container {
+	padding: 0px 0;
+    padding-left: 10px;
+	position: relative;
+    margin: 0px auto;
+
+}
+
+header nav li {
+	display: inline-block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 25px;
+	line-height: 100px;
+	padding-right: 0px;
+}
+
+.nav {
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    padding-top: 35px;
+    padding-right: 20px;
+}
+
+
+
+/*footer{
+    position: relative;
+	padding: 40px;
+    height: 100px;
+    border-bottom: 0px solid #000000 ;
+    background-color: #ee4c50;
+    clear:both;
+
+}*/
+
+footer {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    z-index: 2000;
+    background-color: rgba(238, 76, 80, 1);
+
+}
+#footerbutton {
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    width:100%;
+    height:20px;
+    border: none;
+    cursor: pointer;
+    background: rgba(238, 76, 80, 0.5) ;
+}
+#footerbutton div {
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+}
+
+#footerbutton img.left{
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: 5px;
+    border:none;
+}
+#footerbutton img.right{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    border:none;
+}
+
+#footercontent {
+    width: 100%;
+    height: 0px;
+    border: none;
+}
+
+
+/*.navbar-fixed-bottom{
+    height: 100px;
+    background-color: #ffff00;
+}
+*/
+
+.content {
+    position: relative;
+	background: white;
+	padding: 20px 0;
+
+}
+
+.content article{
+    padding-bottom: 10px;
+	/*border-bottom: 1px solid #eee;*/
+}
+
+.navbar-toggle {
+    background: #2c3e50;
+    margin-right: 20px;
+}
+
+.nav>li>a:hover, .nav>li>a:focus
+{
+    background: none;
+}
+.panel-body{
+    padding: 0px;
+
+}
+
+
+/*--------------------Package Log --------------*/
+
+/*--------------------Timeline------------------*/
+
+.containerblog {
+    /*background: #ecf0f1;*/
+    border: 0px solid #ecf0f1;
+    border-radius: 0px;
+    padding-top: 40px;
+}
+
+.blogrol {
+    margin: 0px 0;
+}
+
+.blogrol article {
+    position: relative;
+    top: 10px;
+    left: 0px;
+    padding: 0 0px 40px 40px;
+    border-left: 6px solid #3498db;
+
+}
+.blogrol h3{
+    margin-top: 0px;
+}
+.date{
+    position: absolute;
+    background: #3498db;
+    border-radius: 50%;
+    height: 58px;
+    width: 58px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 60px;
+   }
+.date p:first-child{
+    padding-top: 5px;
+}
+
+.blogrol .date {
+    left: -32px;
+    top: -5px;
+}
+
+.blogrol article:last-child {
+    border-left: 0;
+    margin-left: 6px;
+}
+
+.blogrol .articleblock{
+    background-color: #E3E5E6;
+    border: 0px solid black;
+    padding: 10px;
+}
+
+
+.blogrol .corner{
+    position: absolute;
+    left: 31px;
+    height: 20px;
+    width: 20px;
+    top: 14px;
+    z-index: 0;
+}
+
+.arrow-left {
+    position: absolute;
+    top: 14px;
+    left: 31px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right:10px solid #E3E5E6;
+}
+.blogrol .clear{
+    clear: both;
+}

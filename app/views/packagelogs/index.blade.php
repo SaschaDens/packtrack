@@ -1,4 +1,4 @@
-@extends('layouts.support')
+@extends('layouts.master')
 
 @section('content')
 <h2>Checkin Package: {{ $location->city or 'Koerrier' }}</h2>

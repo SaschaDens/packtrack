@@ -11,58 +11,57 @@
     <!-- stylesheets -->
     {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css') }}
     {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css') }}
+    {{ HTML::style('http://fonts.googleapis.com/css?family=Montserrat') }}
     @yield('styles')
     {{ HTML::style('assets/css/main.css') }}
-
-    <script>
-        var URL = {
-            'base' : '{{ URL::to('/') }}',
-            'current' : '{{ URL::current() }}',
-            'full' : '{{ URL::full() }}'
-        };
-    </script>
 </head>
 <body>
-    <header>
+
+    <header class="navbar navbar-packtrack navbar-fixed-top" role="banner">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-content">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ URL::to('/') }}">
+
+                <a class="navbar-brand" href="{{ action('HomeController@index') }}">
                     {{ HTML::image('assets/img/logo.png', 'Pack And Track') }}
                 </a>
             </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav pull-right">
+
+            <div class="collapse navbar-collapse" id="navbar-content">
+                <ul class="nav navbar-nav" role="navigation">
                     <li class="{{ set_active('/') }}">
-                        <a href="{{ URL::to('/') }}">Home</a>
+                        {{ link_to_action('HomeController@index', 'Home') }}
                     </li>
-                    <li class="{{ set_active('about') }}">
-                        {{ link_to_action('HomeController@about', 'About') }}
+                    <li class="{{ set_active('locations') }}">
+                        {{ link_to_action('HomeController@getLocations', 'Locations') }}
+                    </li>
+                    <li class="{{ set_active('Portfolio') }}">
+                        <a href="#">Portfolio</a>
                     </li>
                     <li class="{{ set_active('contact') }}">
-                        <a href="contact">Contact</a>
-                    </li>
-                    <li class="{{ set_active('dashboard') }}">
-                        <a href="#contact">Packages</a>
-                    </li>
-                    <li class="{{ set_active('register') }}{{ set_active('login') }}">
-                        <a href="login">Login</a>
+                        {{ link_to_action('HomeController@contact', 'Contact Us') }}
                     </li>
                 </ul>
-            </div><!--/.nav-collapse -->
+
+                {{-- Dynamic View --}}
+                @include('layouts._nav')
+            </div>
         </div>
-   </header>
+    </header>
 
-    <div id="wrap"><div id="main">
-    <div class="content">
+    <div class="jumbotron {{ set_header() }}">
         <div class="container">
+            <h2 class="bigEntrance">Track your pack!</h2>
+        </div>
+    </div>
 
-
+    <div id="content">
+        <div class="container">
             @if(Session::get('success'))
             <div class="alert alert-success fade in">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -80,47 +79,38 @@
                 </ul>
             </div>
             @endif
-            
+
             @yield('content')
         </div>
     </div>
-        </div></div>
+
     <footer>
-        <div id="footerbutton"><div><img src="/assets/img/up.gif" width="11" height="8" class="left"><img src="/assets/img/up.gif" width="11" height="8" class="right"></div></div>
-        <div id="footercontent">
-            <div id="footercontenttext">
-                bla bla
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    {{ HTML::image('assets/img/thomasmore.png', 'Pack And Track') }}
+                </div>
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+
+                </div>
             </div>
         </div>
-        <!--<div class="container">
-                <div class="col-md-4">
-
-                </div>
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    Quick links
-                    <ul>
-                        <li><a href="#">Github</a></li>
-                    </ul>
-                </div>
-
-        </div>-->
+        <hr/>
+        <section id="copyright" class="text-center">
+            <small>PACK AND TRACK, 2014</small>
+        </section>
     </footer>
+
     <!-- scripts -->
     {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js') }}
     {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js') }}
     @yield('scripts')
     {{ HTML::script('assets/js/main.js') }}
-
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-47973073-1', 'packandtrack.be');
-        ga('send', 'pageview');
-    </script>
-
 </body>
 </html>

@@ -6,6 +6,10 @@ function gravatar_url($email, $size=null){
     return 'http://www.gravatar.com/avatar/' . $gravatar . $size ;
 }
 
+function set_header(){
+    return Request::is('/') ? 'jumbotron-big' : '';
+}
+
 function set_active($path, $active = 'active'){
     return Request::is($path) ? $active : '';
 }
