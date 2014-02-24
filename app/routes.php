@@ -23,6 +23,7 @@ Route::resource('sessions', 'SessionsController', array('only' => array('create'
 Route::get('api', 'ApiController@index');
 Route::get('api/locations', 'ApiController@getLocations');
 Route::get('api/tracking/{tracking_key}', 'ApiController@getTracking');
+Route::post('api/auth', 'ApiController@postAuth');
 
 // Resources
 Route::resource('register', 'UsersController');

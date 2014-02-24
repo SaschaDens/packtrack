@@ -66,4 +66,16 @@ class ApiController extends BaseController {
             "Locations"   =>  $locations->toArray()
         ), 200);
     }
+
+    public function postAuth(){
+        if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
+        {
+            return Response::json(array(
+                "Auth"   =>  'Success'
+            ), 200);
+        }
+        return Response::json(array(
+            "Auth"   =>  'Fail'
+        ), 401);
+    }
 }

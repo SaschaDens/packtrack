@@ -21,7 +21,7 @@
             </a>
         </div>
         <div class="col-md-3">
-            <a class="info-box-click" href="{{ action('PackageController@create') }}">
+            <a class="info-box-click" href="{{ action('HomeController@getLocations') }}">
                 <div class="info-box slideLeft">
                     <h3>Locate Center</h3>
                     <span class="glyphicon glyphicon-send"></span>
