@@ -9,15 +9,26 @@
         </li>
     @else
         {{-- Logged in --}}
-        <li class="{{ set_active('dashboard') }}">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-            {{-- <a href="{{ action('PackageController@index') }}">Dashboard <span class="caret"></span></a> --}}
+        <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Menu <b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                @if(Auth::user()->getPermission() >= 1)
+                <li>
+                    {{ link_to_action('SupportController@index', 'Control Panel') }}
+                </li>
+                @else
+                    <li>
+                        {{ link_to_action('PackageController@index', 'Dashboard') }}
+                    </li>
+                    <li>
+                        {{ link_to_action('PackageController@create', 'Create Package') }}
+                    </li>
+                @endif
+
                 <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li>
+                    {{ link_to_action('SessionsController@destroy', 'Logout') }}
+                </li>
             </ul>
         </li>
     @endif

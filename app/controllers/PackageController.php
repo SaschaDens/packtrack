@@ -96,7 +96,14 @@ class PackageController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//Enkel eigen packages met status 0 = Voorbereidfase
+        $package = Package::find($id, Auth::user()->id);
+        if($package and $package->status_code == 0 )
+        {
+            $package->delete();
+            return Redirect::action('PackageController@index')->withSuccess('Package is removed.');
+        }
+        return Redirect::action('PackageController@index')->withErrors('Failed to remove package. Not enough permissions');
 	}
 
 }

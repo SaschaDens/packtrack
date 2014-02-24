@@ -44,7 +44,7 @@ class UsersController extends BaseController {
         try
         {
             $this->userCreator->make(Input::all());
-            $user = User::whereEmail(Input::get('email'));
+            $user = User::whereEmail(Input::get('email'))->first();
             $this->mailer->welcome($user);
         } catch(Packtrack\Exceptions\ValidationException $e)
         {
@@ -71,7 +71,7 @@ class UsersController extends BaseController {
             }
 
             // Update User ID
-            $registration->active = 1;
+            $registration->activated = 1;
             $registration->activation_key = $id . "0000";
             $registration->save();
             return Redirect::action('SessionsController@create')->withSuccess('Your account has been activated. You can login now.');

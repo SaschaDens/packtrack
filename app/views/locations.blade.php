@@ -3,7 +3,7 @@
 @section('title', 'Locations')
 
 @section('content')
-    <h1>Find a delivery spot <small>Drop it at on of our location points and we will do the rest</small></h1>
+    <h1>Find a delivery spot <small> Deliver your package for transport on one of our locations and we will do the rest.</small></h1>
     <div class="row">
         <div class="col-md-2">
             <div id="controls"></div>
@@ -26,6 +26,10 @@
                         lat: val.lat,
                         lon: val.long,
                         title: val.city,
+                        html:[
+                            '<h3>' + val.city + '</h3>',
+                            '<p>' + val.address +'</p>'
+                        ].join(''),
                         zoom: 14
                     };
                     Locations.push(obj);

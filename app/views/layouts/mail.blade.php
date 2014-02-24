@@ -12,7 +12,7 @@
             <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border: 1px solid #cccccc; border-collapse: collapse;">
                 <tr>
                     <td align="center" bgcolor="#3498db" style="padding: 40px 0 30px 0; color: #153643; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
-                        {{ HTML::image('assets/img/logo.png', null, array('alt' => 'Pack&Track')) }}
+                        {{ HTML::image('assets/img/logo-white.png', null, array('alt' => 'Pack&Track')) }}
                     </td>
                 </tr>
                 <tr>
@@ -28,26 +28,6 @@
                             <tr>
                                 <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;" width="75%">
                                     &copy; Pack&Track Belgium 2013-2014<br/>
-
-                                </td>
-                                <td align="right" width="25%">
-                                    <table border="0" cellpadding="0" cellspacing="0">
-                                        <tr>
-                                            <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                                                <a href="http://www.twitter.com/" style="color: #ffffff;">
-                                                    <!--<img src="http://www.nightjar.com.au/tests/magic/images/tw.gif" alt="Twitter" width="38" height="38" style="display: block;" border="0"/>-->
-                                                    {{ HTML::image('assets/img/tw.gif', null, array('alt' => 'Pack&Track Twitter')) }}
-                                                </a>
-                                            </td>
-                                            <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
-                                            <td style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                                                <a href="http://www.twitter.com/" style="color: #ffffff;">
-                                                    <!--<img src="http://www.nightjar.com.au/tests/magic/images/fb.gif" alt="Facebook" width="38" height="38" style="display: block;" border="0"/>-->
-                                                    {{ HTML::image('assets/img/fb.gif', null, array('alt' => 'Pack&Track Facebook')) }}
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </table>
                                 </td>
                             </tr>
                         </table>

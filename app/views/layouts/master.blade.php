@@ -40,8 +40,11 @@
                     <li class="{{ set_active('locations') }}">
                         {{ link_to_action('HomeController@getLocations', 'Locations') }}
                     </li>
+                    <li class="{{ set_active('tracking') }}">
+                        {{ link_to_action('HomeController@getTracking', 'Track Pack') }}
+                    </li>
                     <li class="{{ set_active('Portfolio') }}">
-                        <a href="#">Portfolio</a>
+                        {{ link_to_action('HomeController@about', 'About Us') }}
                     </li>
                     <li class="{{ set_active('contact') }}">
                         {{ link_to_action('HomeController@contact', 'Contact Us') }}

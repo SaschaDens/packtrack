@@ -1,6 +1,6 @@
 // sliding footer
 $(document).ready(function($) {
-    var open = false;
+    /*var open = false;
     $('#footerbutton').click(function () {
         if(open === false) {
             $('#footercontent').animate({ height: '100px' });
@@ -13,5 +13,6 @@ $(document).ready(function($) {
             $('#footerbutton img').attr('src', '/assets/img/up.gif');
             open = false;
         }
-    });
+    });*/
+
 });

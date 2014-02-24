@@ -35,6 +35,7 @@ class SessionsController extends \BaseController {
 
             if($login)
             {
+                if(Auth::user()->getPermission() >= 1) return Redirect::action('SupportController@index');
                 return Redirect::intended('dashboard');
             }
 

@@ -21,4 +21,4 @@
 
 {{ Form::bt_textarea('description', null, null, array('class' => 'input-lg', 'placeholder' => 'Package Description', 'tabindex' => '7')) }}
 
-{{ Form::bt_button('Create', array('class' => 'btn-primary btn-block btn-lg', 'tabindex' => '8')) }}
+{{ Form::bt_button('Create', array('class' => 'btn-pack btn-block btn-lg', 'tabindex' => '8')) }}
