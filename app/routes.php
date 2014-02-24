@@ -39,6 +39,8 @@ Route::get('maps', function(){
     return View::make('maps.index');
 });
 Route::get('mail', function(){
-    $activation = User::find(1)->activation_key;
-    return View::make('emails.activation', compact('activation'));
+    //$activation = User::find(1)->activation_key;
+    $package = Package::find(1);
+    $tracking = $package->tracking_code;
+    return View::make('emails.tracking', compact('tracking'));
 });

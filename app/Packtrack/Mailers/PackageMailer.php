@@ -7,10 +7,9 @@ class PackageMailer extends Mailer{
     {
         $view = 'emails.tracking';
         $data = array(
-            'reciever_name' =>  $package->reciever_name,
             'tracking'    =>  $package->tracking_code
         );
-        $subject = "Your package is on it's way to you, here is your tracking key.";
+        $subject = "Your package is now trackable!";
 
         if(isset($package->reciever_mail)) return false;
         return $this->sendTo($package->reciever_mail, $subject, $view, $data);

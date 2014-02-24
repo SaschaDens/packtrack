@@ -11,4 +11,4 @@
     {{ Form::select('country', array('BE' => 'Belgium'), '', array('class' => 'form-control input-lg', 'tabindex' => '4')) }}
     <span class="help-block">We currently only operate in Belgium</span>
 </div>
-{{ Form::bt_button('Create', array('class' => 'btn-primary btn-block btn-lg', 'tabindex' => '5')) }}
+{{ Form::bt_button('Create', array('class' => 'btn-pack btn-block btn-lg', 'tabindex' => '5')) }}

@@ -1,4 +1,4 @@
-@extends('layouts.support')
+@extends('layouts.master')
 
 @section('content')
 
@@ -8,5 +8,8 @@
     @include('locations._form')
     {{ Form::close() }}
 </div>
-
+<div class="clearfix"></div>
+<div class="pull-right">
+    {{ link_to_action('LocationController@index', 'Return to Location Menu') }}
+</div>
 @stop

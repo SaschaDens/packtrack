@@ -1,10 +1,22 @@
-@extends('layouts.support')
+@extends('layouts.master')
 
 @section('content')
 
 <h2>Locations</h2>
 
-{{ link_to_action('LocationController@create', 'Create app') }}
+<div class="row">
+    <div class="col-md-3">
+        <a class="info-box-click" href="{{ action('LocationController@create') }}">
+            <div class="info-box slideLeft">
+                <h3>Create Location</h3>
+                <span class="glyphicon glyphicon-send"></span>
+                <p>
+                    <small>Create Distribution center where packages can be delivered.</small>
+                </p>
+            </div>
+        </a>
+    </div>
+</div>
 
 <table class="table">
     <thead>
@@ -42,4 +54,8 @@
     </tbody>
 </table>
 
+<div class="clearfix"></div>
+<div class="pull-right">
+    {{ link_to_action('SupportController@index', 'Return to Control Panel') }}
+</div>
 @stop

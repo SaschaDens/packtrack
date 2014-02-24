@@ -101,7 +101,7 @@ class UsersTableSeeder extends Seeder {
             'city'          =>  'Geel',
             'postal_code'   =>  '2440',
             'address'       =>  "Kleinhoefstraat 4",
-            'location_id'       =>  '4'
+            'location_id'       =>  '3'
         ));
 
         User::create(array(
@@ -116,7 +116,7 @@ class UsersTableSeeder extends Seeder {
             'city'          =>  'Sint - Katelijne - Waver',
             'postal_code'   =>  '2860',
             'address'       =>  'Jan Pieter de Nayerlaan 5',
-            'location_id'       =>  '5'
+            'location_id'       =>  '4'
         ));
 
         User::create(array(
@@ -131,7 +131,7 @@ class UsersTableSeeder extends Seeder {
             'city'          =>  'Turnhout',
             'postal_code'   =>  '2300',
             'address'       =>  'Campus Blairon 800',
-            'location_id'       =>  '6'
+            'location_id'       =>  '5'
         ));
 
         User::create(array(
@@ -146,7 +146,7 @@ class UsersTableSeeder extends Seeder {
             'city'          =>  'Mechelen',
             'postal_code'   =>  '2800',
             'address'       =>  'Zandpoortvest 60',
-            'location_id'       =>  '7'
+            'location_id'       =>  '6'
         ));
 
         User::create(array(
@@ -161,7 +161,7 @@ class UsersTableSeeder extends Seeder {
             'city'          =>  'Lier',
             'postal_code'   =>  '2500',
             'address'       =>  'Antwerpsestraat 99',
-            'location_id'       =>  '8'
+            'location_id'       =>  '7'
         ));
 
         User::create(array(
@@ -176,7 +176,7 @@ class UsersTableSeeder extends Seeder {
             'city'          =>  'Vorselaar',
             'postal_code'   =>  '2290',
             'address'       =>  'Sint-Andriesstraat 2',
-            'location_id'       =>  '9'
+            'location_id'       =>  '8'
         ));
 
         User::create(array(
@@ -191,7 +191,7 @@ class UsersTableSeeder extends Seeder {
             'city'          =>  'Antwerpen',
             'postal_code'   =>  '2000',
             'address'       =>  'Sint-Andriesstraat 2',
-            'location_id'       =>  '10'
+            'location_id'       =>  '9'
         ));
 
         // Uncomment the below to run the seeder

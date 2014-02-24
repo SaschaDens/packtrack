@@ -43,7 +43,7 @@
                     <li class="{{ set_active('tracking') }}">
                         {{ link_to_action('HomeController@getTracking', 'Track Pack') }}
                     </li>
-                    <li class="{{ set_active('Portfolio') }}">
+                    <li class="{{ set_active('about') }}">
                         {{ link_to_action('HomeController@about', 'About Us') }}
                     </li>
                     <li class="{{ set_active('contact') }}">
