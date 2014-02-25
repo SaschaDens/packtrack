@@ -98,6 +98,13 @@ class LocationsTableSeeder extends Seeder {
             'postal_code'   => '2000'
         ));
 
+        Location::create(array(
+            // Locatie
+            'type'  =>  0,
+            'lat'   =>  5,
+            'long'  =>  4,
+        ));
+
 		// Uncomment the below to run the seeder
 		// DB::table('users')->insert($users);
 	}

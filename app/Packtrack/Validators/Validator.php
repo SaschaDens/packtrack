@@ -32,6 +32,19 @@ abstract class Validator {
         return true;
     }
 
+    public function isValidDynamic(array $attributes, $rules)
+    {
+        $v = V::make($attributes, $rules);
+
+        if($v->fails())
+        {
+            $this->errors = $v->messages();
+            return false;
+        }
+
+        return true;
+    }
+
     public function getErrors()
     {
         return $this->errors;

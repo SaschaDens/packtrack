@@ -13,12 +13,12 @@ class ApiController extends BaseController {
 
 	public function index()
     {
-        return "API index";
+        return View::make('api.index');
     }
 
     public function getTracking($key)
     {
-        $package = Package::whereTracking_code($key)
+        /*$package = Package::whereTracking_code($key)
             ->leftJoin('users as u', 'package.user_id', '=', 'u.id')
             ->first(array(
                 DB::raw("concat(u.first_name, ' ', u.last_name) as sender_name"),
@@ -28,23 +28,51 @@ class ApiController extends BaseController {
                 DB::raw('u.address as sender_address'),
                 DB::raw('u.postal_code as sender_postal_code'),
                 DB::raw('package.reciever_name as to_reciever'),
+                DB::raw('package.city as to_city'),
                 DB::raw('package.country as to_country'),
                 DB::raw('package.address as to_address'),
                 DB::raw('package.postal_code as to_postal_code'),
                 DB::raw('package.tracking_code'),
                 DB::raw('package.description'),
-                DB::raw('package.created_at as sended_at')
-            ));
+                DB::raw('package.created_at as sended_at'),
+            ));//*/
+        $packs = Package::whereTracking_code($key)->with('user', 'packagelog.location')->first();
 
-        if(!$package)
+        if(!$packs)
         {
             return Response::json(array(
                 "errors"    =>  "Tracking key does not exist"
             ), 404);
         }
 
+        $locations = $packs->packagelog->toArray();
+        $loc = array();
+
+        for($i = 0; $i < sizeof($locations); $i++)
+        {
+            array_push($loc, $locations[1]['location']);
+        }
+
+        $api_output = array(
+            "sender_name"   =>  $packs->user->first_name . ' ' . $packs->user->last_name,
+            "sender_email"  =>  $packs->user->email,
+            "sender_country"  =>  $packs->user->country,
+            "sender_city"  =>  $packs->user->city,
+            "sender_address"  =>  $packs->user->address,
+            "sender_postal_code"  =>  $packs->user->postal_code,
+            "to_reciever"   =>  $packs->reciever_name,
+            "to_city"   =>  $packs->city,
+            "to_country"   =>  $packs->country,
+            "to_address"   =>  $packs->address,
+            "to_postal_code"   =>  $packs->postal_code,
+            "tracking_code"   =>  $packs->tracking_code,
+            "description"   =>  $packs->description,
+            "sended_at"   =>  $packs->created_at->toDateTimeString(),
+            "locations" =>  $loc
+        );
+
         return Response::json(array(
-            "Package"   =>  $package->toArray()
+            "Package"   =>  $api_output
         ), 200);
 
         //return $package;
@@ -77,5 +105,33 @@ class ApiController extends BaseController {
         return Response::json(array(
             "Auth"   =>  'Fail'
         ), 401);
+    }
+
+    public function postLocate()
+    {
+        if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
+        {
+            if(Input::get('lat') and Input::get('long'))
+            {
+                $location = Auth::user()->location;
+                $location->lat = Input::get('lat');
+                $location->long = Input::get('long');
+                $location->save();
+                return Response::json(array(
+                    "success"   =>  "Added user"
+                ), 200);
+            }
+            return Response::json(array(
+                "Missing"   =>  "Missing parameters"
+            ), 400);
+        }
+        return Response::json(array(
+            "Auth"   =>  'Fail'
+        ), 401);
+    }
+
+    public function postPackage()
+    {
+
     }
 }

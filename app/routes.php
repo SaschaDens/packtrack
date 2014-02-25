@@ -24,6 +24,8 @@ Route::get('api', 'ApiController@index');
 Route::get('api/locations', 'ApiController@getLocations');
 Route::get('api/tracking/{tracking_key}', 'ApiController@getTracking');
 Route::post('api/auth', 'ApiController@postAuth');
+Route::post('api/locate', 'ApiController@postLocate');
+Route::post('api/package', 'ApiController@postPackage');
 
 // Resources
 Route::resource('register', 'UsersController');
@@ -41,6 +43,5 @@ Route::get('maps', function(){
 Route::get('mail', function(){
     //$activation = User::find(1)->activation_key;
     $package = Package::find(1);
-    $tracking = $package->tracking_code;
-    return View::make('emails.tracking', compact('tracking'));
+    return View::make('emails.barcode', compact('package'));
 });

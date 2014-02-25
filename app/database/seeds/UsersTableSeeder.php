@@ -68,6 +68,8 @@ class UsersTableSeeder extends Seeder {
             'password'      =>  'abc123!',
             'activation_key'    => Generate::activation_key(),
             'activated'        =>  1,
+            'permission_level'        =>  1,
+            'location_id'       => 10,
             'country'       =>  'BE',
             'city'          =>  $faker->city,
             'postal_code'   =>  '2260',

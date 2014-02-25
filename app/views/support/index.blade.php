@@ -39,6 +39,18 @@
             </div>
         </a>
     </div>
+
+    <div class="col-md-3">
+        <a class="info-box-click" href="{{ action('PackageController@create') }}">
+            <div class="info-box slideLeft">
+                <h3>Manage Packages</h3>
+                <span class="glyphicon glyphicon-th-large"></span>
+                <p>
+                    <small>This interface will help you to manage the clients packages</small>
+                </p>
+            </div>
+        </a>
+    </div>
 </div>
 <h2>Packtrack Service <small>Free for an employee!</small></h2>
 <div class="row">
