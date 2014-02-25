@@ -132,6 +132,26 @@ class ApiController extends BaseController {
 
     public function postPackage()
     {
-
+        if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
+        {
+            if(Input::get('tracking_code'))
+            {
+                $package = Package::whereTrackingCode(Input::get('tracking_code'));
+                if($package)
+                {
+                    $package->status_code = 4;
+                    $package->save();
+                    return Response::json(array(
+                        "Success"   =>  'Great Success'
+                    ), 200);
+                }
+                return Response::json(array(
+                    "Error"   =>  'Something went wrong'
+                ), 400);
+            }
+        }
+        return Response::json(array(
+            "Auth"   =>  'Fail'
+        ), 401);
     }
 }
