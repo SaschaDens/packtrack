@@ -7,6 +7,7 @@ class PackagelogController extends BaseController {
     protected $packagelogCreator;
     public function __construct(PackagelogCreatorService $packagelogCreator)
     {
+        $this->beforeFilter('isSupport');
         $this->packagelogCreator = $packagelogCreator;
     }
 

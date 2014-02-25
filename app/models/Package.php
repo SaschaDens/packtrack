@@ -29,6 +29,7 @@ class Package extends Eloquent {
     public static function find($package_id, $userID = null)
     {
         $package = Static::with('user')->find($package_id);
+        if(!isset($package)) throw new Illuminate\Database\Eloquent\ModelNotFoundException;
 
         if($userID and $package->user->id !== $userID)
         {

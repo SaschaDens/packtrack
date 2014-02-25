@@ -8,7 +8,7 @@
         <a class="info-box-click" href="{{ action('PackagelogController@index') }}">
             <div class="info-box slideLeft">
                 <h3>Scan Package</h3>
-                <span class="glyphicon glyphicon-search"></span>
+                <span class="glyphicon glyphicon-qrcode"></span>
                 <p>
                     <small>Add, Change or Delete a user. This tool makes it also possible to change working location.</small>
                 </p>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="col-md-3">
-        <a class="info-box-click" href="{{ action('PackageController@create') }}">
+        <a class="info-box-click" href="{{ action('UserSupportController@index') }}">
             <div class="info-box slideLeft">
                 <h3>Manage User</h3>
                 <span class="glyphicon glyphicon-user"></span>

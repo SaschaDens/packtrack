@@ -100,9 +100,13 @@ Route::filter('redirectAdmin', function(){
 });
 
 Route::filter('isSupport', function(){
-    $level = Auth::user()->getPermission();
-    if($level < 1) throw new Packtrack\Exceptions\PermissionException('This account has not enough support permissions.');
-    //return (bool) Auth::user()->getPermission();
+    if(Auth::check())
+    {
+        $level = Auth::user()->getPermission();
+        if($level < 1) throw new Packtrack\Exceptions\PermissionException('This account has not enough support permissions.');
+    } else {
+        throw new Packtrack\Exceptions\PermissionException('This account has not enough support permissions.');
+    }
 });
 
 Route::filter('isAdmin', function(){

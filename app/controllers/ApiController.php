@@ -136,7 +136,7 @@ class ApiController extends BaseController {
         {
             if(Input::get('tracking_code'))
             {
-                $package = Package::whereTrackingCode(Input::get('tracking_code'));
+                $package = Package::whereTrackingCode(Input::get('tracking_code'))->first();
                 if($package)
                 {
                     $package->status_code = 4;

@@ -1,9 +1,5 @@
 <?php
 
-/*Event::listen('illuminate.query', function($query){
-    var_dump($query);
-});//*/
-
 // Main Routes
 Route::get('/', 'HomeController@index');
 Route::get('locations', 'HomeController@getLocations');
@@ -35,6 +31,7 @@ Route::resource('dashboard', 'PackageController');
 Route::get('cp', 'SupportController@index');
 Route::resource('cp/locations', 'LocationController', array('except' => array('show')));
 Route::resource('cp/scan', 'PackagelogController');
+Route::resource('cp/users', 'UserSupportController');
 
 // Testing
 Route::get('maps', function(){
