@@ -36,18 +36,7 @@
             <td>{{ $loc->country }}</td>
             <td>{{ $loc->postal_code }}</td>
             <td>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown">
-                        Action <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            {{ link_to_action('LocationController@edit', 'Edit', array($loc->id)) }}
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#">Delete</a></li>
-                    </ul>
-                </div>
+                <a href="{{ action('LocationController@edit', $loc->id) }}"><span class="glyphicon glyphicon-pencil"></span></a>
             </td>
         </tr>
         @endforeach

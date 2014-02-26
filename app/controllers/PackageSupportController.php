@@ -55,7 +55,7 @@ class PackageSupportController extends BaseController {
 	{
         $package = Package::Trackingcode($id)->with('user')->firstOrFail();
         $logs = Packagelog::wherePackageId($package->id)->with('location')->get();
-        return View::make('packages.show', compact('package', 'logs'));
+        return View::make('packagesupport.show', compact('package', 'logs'));
 	}
 
 	/**
@@ -66,6 +66,7 @@ class PackageSupportController extends BaseController {
 	 */
 	public function edit($id)
 	{
+        //return View::make('packagesupport.edit');
 	}
 
 	/**

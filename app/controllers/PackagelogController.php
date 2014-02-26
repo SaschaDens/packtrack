@@ -20,12 +20,17 @@ class PackagelogController extends BaseController {
 	{
         //Packagelog::registered(1,2)
         $location = Auth::user()->location;
-        $packages = Packagelog::Locations($location->id)
-            ->with('package')
-            ->orderBy('created_at', 'desc')
-            ->take(20)
-            ->get();
-        return View::make('packagelogs.index', compact('location', 'packages'));
+        if($location->type != 0)
+        {
+            $packages = Packagelog::Locations($location->id)
+                ->with('package')
+                ->orderBy('created_at', 'desc')
+                ->take(20)
+                ->get();
+            return View::make('packagelogs.index', compact('location', 'packages'));
+        }
+
+        return Redirect::back()->withErrors("A courrier can only checkout a package with our mobile app");
 	}
 
 	/**

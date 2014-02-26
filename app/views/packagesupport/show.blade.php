@@ -36,11 +36,7 @@
 <br/>
 <div class="clearfix"></div>
 <h3 class="panel-title">Package log: {{ $package->tracking_code }}</h3>
-<!--<div class="panel panel-default">
-    <div class="panel-heading">
 
-    </div>
-    <div class="panel-body">-->
 <div class="containerblog col-md-6 col-md-offset-3">
     <div class="blogrol">
         {{ HTML::package_log('registration', $package->created_at, 'Deliver this package to a location nearby. We handle it further.') }}

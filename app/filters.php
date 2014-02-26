@@ -103,9 +103,14 @@ Route::filter('isSupport', function(){
     if(Auth::check())
     {
         $level = Auth::user()->getPermission();
-        if($level < 1) throw new Packtrack\Exceptions\PermissionException('This account has not enough support permissions.');
+        if($level < 1)
+        {
+            return Redirect::to('dashboard')->withErrors('This account has not enough support permissions.');
+            //throw new Packtrack\Exceptions\PermissionException('This account has not enough support permissions.');
+        }
     } else {
-        throw new Packtrack\Exceptions\PermissionException('This account has not enough support permissions.');
+        return Redirect::to('login');
+        //throw new Packtrack\Exceptions\PermissionException('This account has not enough support permissions.');
     }
 });
 
