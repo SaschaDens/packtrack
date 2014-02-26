@@ -31,7 +31,8 @@ class PackagelogCreatorService {
                 //'description'   =>  $attributes['description'],
                 'location_id'   =>  $location_id
             ));
-            if($package->status_code == 0)
+
+            if($package->status_code == 0 and !is_null($package->reciever_mail))
             {
                 $this->mailer->trackingCode($package);
                 $package->status_code = 1;

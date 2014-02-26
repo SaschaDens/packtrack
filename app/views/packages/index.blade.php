@@ -42,7 +42,6 @@
                 <th>Postal Code</th>
                 <th>City</th>
                 <th>Country</th>
-                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -55,7 +54,6 @@
                     <td>{{ $package->postal_code }}</td>
                     <td>{{ $package->city }}</td>
                     <td>{{ $package->country }}</td>
-                    <td>Not tracked yet</td>
                     <td>
                         @if($package->status_code == 0)
                         <a><span class="glyphicon glyphicon-trash" data-toggle="modal" data-target=".deletePackage-{{ $package->id }}"></span></a>

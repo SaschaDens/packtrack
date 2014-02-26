@@ -59,7 +59,7 @@ function typeGenerator($type){
             $out = array('icon' => 'glyphicon-inbox', 'title' => 'Package Arrived');
             break;
         case 'recieved':
-            $out = array('icon' => 'glyphicon-ok', 'title' => 'Arrived on destination');
+            $out = array('icon' => 'glyphicon-ok', 'title' => 'Arrived at destination');
             break;
     }
 

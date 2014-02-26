@@ -39,7 +39,9 @@ Route::get('maps', function(){
     return View::make('maps.index');
 });
 Route::get('mail', function(){
-    //$activation = User::find(1)->activation_key;
-    $package = Package::find(1);
-    return View::make('emails.barcode', compact('package'));
+    $pack = new Packtrack\Mailers\PackageMailer();
+    $found = Package::find(2);
+
+    return $pack->sendBarcode($found);
+    return "Mail send";
 });

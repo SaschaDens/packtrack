@@ -51,7 +51,7 @@ class UsersController extends BaseController {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }
 
-        return Redirect::action('SessionsController@create')->withSuccess('An email has been sended. Please confirm your account.');
+        return Redirect::action('SessionsController@create')->withSuccess('An email has been sent. Please confirm your account.');
 	}
 
 	/**
