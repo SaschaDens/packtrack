@@ -3,6 +3,7 @@
 use Packtrack\Validators\UserValidator;
 use Packtrack\Exceptions\ValidationException;
 use User;
+use Location;
 
 class UserCreatorService {
 
@@ -29,10 +30,6 @@ class UserCreatorService {
     {
         if($this->validator->isValidCreate($attributes))
         {
-            $location = new Location();
-            $location->type = 0;
-            $location->save();
-
             $user = new User();
             $user->first_name = $attributes['first_name'];
             $user->last_name = $attributes['last_name'];
@@ -45,7 +42,15 @@ class UserCreatorService {
             $user->postal_code = $attributes['postal_code'];
             $user->address = $attributes['address'];
             $user->postal_code = $attributes['postal_code'];
-            $user->location_id = $location->id;
+            if($attributes['location'] == 1)
+            {
+                $location = new Location();
+                $location->type = 0;
+                $location->save();
+                $user->location_id = $location->id;
+            } else{
+                $user->location_id = $attributes['location'];
+            }
             $user->save();
 
             return true;

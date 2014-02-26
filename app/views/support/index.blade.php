@@ -41,7 +41,7 @@
     </div>
 
     <div class="col-md-3">
-        <a class="info-box-click" href="{{ action('PackageController@create') }}">
+        <a class="info-box-click" href="{{ action('PackageSupportController@index') }}">
             <div class="info-box slideLeft">
                 <h3>Manage Packages</h3>
                 <span class="glyphicon glyphicon-th-large"></span>

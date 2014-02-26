@@ -3,12 +3,10 @@
 use Packtrack\Mailers\UserMailer;
 use Packtrack\Services\UserCreatorService;
 
-class UserSupportController extends BaseController {
+class PackageSupportController extends BaseController {
 
-    protected $userCreator;
-    public function __construct(UserMailer $mailer, UserCreatorService $userCreator)
+    public function __construct()
     {
-        $this->userCreator = $userCreator;
         $this->beforeFilter('isSupport');
     }
 
@@ -20,8 +18,8 @@ class UserSupportController extends BaseController {
 	 */
 	public function index()
 	{
-        $users = User::where('permission_level', '>', 0)->with('location')->get();
-        return View::make('usersupport.index', compact('users'));
+        $packages = Package::with('user')->paginate(30);
+        return View::make('packagesupport.index', compact('packages'));
 	}
 
 	/**
@@ -31,10 +29,8 @@ class UserSupportController extends BaseController {
 	 */
 	public function create()
 	{
-        $locations = Location::Distribution()->lists('address', 'id');
-        $locations[1] = "Koerrier";
 
-        return View::make('usersupport.create', compact('locations'));
+        return View::make('packagesupport.create');
 	}
 
 	/**
@@ -44,13 +40,9 @@ class UserSupportController extends BaseController {
 	 */
 	public function store()
 	{
-        try{
-            $this->userCreator->createWorker(Input::all());
-        } catch(Packtrack\Exceptions\ValidationException $e)
-        {
-            return Redirect::back()->withInput()->withErrors($e->getErrors());
-        }
-        return Redirect::action('UserSupportController@index')->withSuccess('Support User added');
+        $package = Package::Trackingcode(Input::get('search_package'))->first();
+        if(!$package) return Redirect::back()->withErrors('Package not found');
+        return Redirect::action('PackageSupportController@show', Input::get('search_package'));
 	}
 
 	/**
@@ -61,7 +53,9 @@ class UserSupportController extends BaseController {
 	 */
 	public function show($id)
 	{
-
+        $package = Package::Trackingcode($id)->with('user')->firstOrFail();
+        $logs = Packagelog::wherePackageId($package->id)->with('location')->get();
+        return View::make('packages.show', compact('package', 'logs'));
 	}
 
 	/**

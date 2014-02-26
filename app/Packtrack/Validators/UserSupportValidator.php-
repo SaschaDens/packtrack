@@ -9,6 +9,7 @@ class UserSupportValidator extends Validator{
         'address'               =>  'required',
         'city'                  =>  'required',
         'postal_code'           =>  'required',
-        'country'               =>  'required'
+        'country'               =>  'required',
+        'location'              =>  'required'
     );
 }

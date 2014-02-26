@@ -28,10 +28,11 @@ Route::resource('register', 'UsersController');
 Route::resource('dashboard', 'PackageController');
 
 // Control panel for admins
-Route::get('cp', 'SupportController@index');
 Route::resource('cp/locations', 'LocationController', array('except' => array('show')));
 Route::resource('cp/scan', 'PackagelogController');
 Route::resource('cp/users', 'UserSupportController');
+Route::resource('cp/package', 'PackageSupportController');
+Route::get('cp', 'SupportController@index');
 
 // Testing
 Route::get('maps', function(){
