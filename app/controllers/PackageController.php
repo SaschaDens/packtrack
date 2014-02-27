@@ -6,8 +6,6 @@ class PackageController extends BaseController {
     function __construct(PackageCreatorService $packageCreator)
     {
         $this->beforeFilter('auth');
-        //$this->beforeFilter('redirectAdmin');
-
         $this->packageCreator = $packageCreator;
     }
 
@@ -64,28 +62,6 @@ class PackageController extends BaseController {
         $logs = Packagelog::wherePackageId($package->id)->with('location')->get();
 
         return View::make('packages.show', compact('package', 'logs'));
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-        return View::make('packages.edit');
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-
 	}
 
 	/**

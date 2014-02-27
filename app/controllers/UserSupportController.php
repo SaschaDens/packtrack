@@ -32,7 +32,7 @@ class UserSupportController extends BaseController {
 	public function create()
 	{
         $locations = Location::Distribution()->lists('address', 'id');
-        $locations[1] = "Koerrier";
+        $locations[0] = "Koerrier";
 
         return View::make('usersupport.create', compact('locations'));
 	}
@@ -51,49 +51,6 @@ class UserSupportController extends BaseController {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }
         return Redirect::action('UserSupportController@index')->withSuccess('Support User added');
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
 	}
 
 }

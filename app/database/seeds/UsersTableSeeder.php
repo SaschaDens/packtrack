@@ -69,7 +69,7 @@ class UsersTableSeeder extends Seeder {
             'activation_key'    => Generate::activation_key(),
             'activated'        =>  1,
             'permission_level'        =>  1,
-            'location_id'       => 10,
+            'location_id'       => 9,
             'country'       =>  'BE',
             'city'          =>  $faker->city,
             'postal_code'   =>  '2260',

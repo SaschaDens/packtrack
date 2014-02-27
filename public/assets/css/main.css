@@ -106,7 +106,8 @@ a:hover, a:active{
     color: #fff;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
     background: url(../img/header_1.jpg) top center no-repeat;
-    font-family: 'Montserrat', sans-serif;
+    font-family: sans-serif;
+    font-weight: bold;
     text-transform: uppercase;
 }
 

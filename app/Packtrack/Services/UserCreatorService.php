@@ -42,7 +42,7 @@ class UserCreatorService {
             $user->postal_code = $attributes['postal_code'];
             $user->address = $attributes['address'];
             $user->postal_code = $attributes['postal_code'];
-            if($attributes['location'] == 1)
+            if($attributes['location'] == 0)
             {
                 $location = new Location();
                 $location->type = 0;

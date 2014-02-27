@@ -10,7 +10,6 @@ class PackageSupportController extends BaseController {
         $this->beforeFilter('isSupport');
     }
 
-
     /**
 	 * Display a listing of the resource.
 	 *
@@ -20,17 +19,6 @@ class PackageSupportController extends BaseController {
 	{
         $packages = Package::with('user')->paginate(30);
         return View::make('packagesupport.index', compact('packages'));
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-
-        return View::make('packagesupport.create');
 	}
 
 	/**
@@ -56,39 +44,6 @@ class PackageSupportController extends BaseController {
         $package = Package::Trackingcode($id)->with('user')->firstOrFail();
         $logs = Packagelog::wherePackageId($package->id)->with('location')->get();
         return View::make('packagesupport.show', compact('package', 'logs'));
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-        //return View::make('packagesupport.edit');
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
 	}
 
 }

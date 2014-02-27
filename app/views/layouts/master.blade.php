@@ -11,9 +11,8 @@
     <!-- stylesheets -->
     {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css') }}
     {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css') }}
-    {{ HTML::style('http://fonts.googleapis.com/css?family=Montserrat') }}
     @yield('styles')
-    {{ HTML::style('assets/css/main.css') }}
+    {{ HTML::style('assets/css/main.min.css?v=1') }}
 </head>
 <body>
 
@@ -43,11 +42,11 @@
                     <li class="{{ set_active('tracking') }}">
                         {{ link_to_action('HomeController@getTracking', 'Track Pack') }}
                     </li>
-                    <li class="{{ set_active('about') }}">
-                        {{ link_to_action('HomeController@about', 'About Us') }}
-                    </li>
                     <li class="{{ set_active('contact') }}">
                         {{ link_to_action('HomeController@contact', 'Contact Us') }}
+                    </li>
+                    <li class="{{ set_active('about') }}">
+                        {{ link_to_action('HomeController@about', 'About Us') }}
                     </li>
                 </ul>
 
@@ -114,6 +113,5 @@
     {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js') }}
     {{ HTML::script('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js') }}
     @yield('scripts')
-    {{ HTML::script('assets/js/main.js') }}
 </body>
 </html>

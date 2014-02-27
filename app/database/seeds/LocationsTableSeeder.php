@@ -13,13 +13,6 @@ class LocationsTableSeeder extends Seeder {
             // EMPTY
         ));
 
-        Location::create(array(
-            // Koerier
-            'type'  =>  0,
-            'lat'   =>  53.02,
-            'long'  =>  41.03
-        ));
-
         // https://maps.googleapis.com/maps/api/geocode/json?address=Kleinhoefstraat 4,+BE&sensor=false&key=AIzaSyBXpdZ1klzTuFAmTTHYclJe2n_hkaBOpbU
         Location::create(array(
             // Locatie

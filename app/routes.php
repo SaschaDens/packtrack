@@ -24,24 +24,12 @@ Route::post('api/locate', 'ApiController@postLocate');
 Route::post('api/package', 'ApiController@postPackage');
 
 // Resources
-Route::resource('register', 'UsersController');
-Route::resource('dashboard', 'PackageController');
+Route::resource('register', 'UsersController', array('only' => array('index', 'store', 'show')));
+Route::resource('dashboard', 'PackageController', array('except' => array('edit', 'update')));
 
 // Control panel for admins
-Route::resource('cp/locations', 'LocationController', array('except' => array('show')));
-Route::resource('cp/scan', 'PackagelogController');
-Route::resource('cp/users', 'UserSupportController');
-Route::resource('cp/package', 'PackageSupportController');
+Route::resource('cp/locations', 'LocationController', array('except' => array('show', 'destroy')));
+Route::resource('cp/scan', 'PackagelogController', array('only' => array('index', 'store')));
+Route::resource('cp/users', 'UserSupportController', array('only' => array('index', 'create', 'store')));
+Route::resource('cp/package', 'PackageSupportController', array('only' => array('index', 'store', 'show')));
 Route::get('cp', 'SupportController@index');
-
-// Testing
-Route::get('maps', function(){
-    return View::make('maps.index');
-});
-Route::get('mail', function(){
-    $pack = new Packtrack\Mailers\PackageMailer();
-    $found = Package::find(2);
-
-    return $pack->sendBarcode($found);
-    return "Mail send";
-});

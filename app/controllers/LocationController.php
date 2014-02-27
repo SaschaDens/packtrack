@@ -7,8 +7,7 @@ class LocationController extends BaseController {
     protected $locationCreator;
     public function __construct(LocationCreatorService $locationCreator)
     {
-        $this->beforeFilter('isSupport'); // SUPPORT MAG INDEX ZIEN. Niet aanmaken en aanpassen.
-
+        $this->beforeFilter('isSupport');
         $this->locationCreator = $locationCreator;
     }
 
@@ -77,17 +76,6 @@ class LocationController extends BaseController {
             return Redirect::back()->withInput()->withErrors($e->getErrors());
         }
         return Redirect::action('LocationController@index')->withSuccess('Location updated');
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
 	}
 
 }
