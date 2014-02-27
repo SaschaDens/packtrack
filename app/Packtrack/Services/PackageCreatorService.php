@@ -32,7 +32,7 @@ class PackageCreatorService {
             $package->description = $attributes['description'];
             $package->save();
 
-            $this->mailer->sendBarcode($package);
+            //$this->mailer->sendBarcode($package);
 
             /*Package::create(array(
                 'user_id'       =>  Auth::user()->id,
@@ -45,7 +45,7 @@ class PackageCreatorService {
                 'description'   =>  $attributes['description'],
             ));//*/
 
-            return true;
+            return $package;
         }
 
         throw new ValidationException('Package validation failed', $this->validator->getErrors());

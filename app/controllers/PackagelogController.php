@@ -12,12 +12,12 @@ class PackagelogController extends BaseController {
     }
 
     /**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
         //Packagelog::registered(1,2)
         $location = Auth::user()->location;
         if($location->type != 0)
@@ -31,15 +31,15 @@ class PackagelogController extends BaseController {
         }
 
         return Redirect::back()->withErrors("A courrier can only checkout a package with our mobile app");
-	}
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
         try
         {
             $package = Package::trackingcode(Input::get('tracking_code'))->firstOrFail();
@@ -52,5 +52,5 @@ class PackagelogController extends BaseController {
         }
 
         return Redirect::back()->withSuccess('Package registered');
-	}
+    }
 }
