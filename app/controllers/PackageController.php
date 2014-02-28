@@ -44,7 +44,6 @@ class PackageController extends BaseController {
 	 */
 	public function store()
 	{
-        dd(Input::all());
         try
         {
             $create = $this->packageCreator->make(Input::all());

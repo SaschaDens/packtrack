@@ -109,7 +109,6 @@ return array(
 
         'Way\Generators\GeneratorsServiceProvider',
         'Packtrack\Generator\GenerateServiceProvider',
-        'Dinesh\Barcode\BarcodeServiceProvider',
         'Clockwork\Support\Laravel\ClockworkServiceProvider'
 	),
 
