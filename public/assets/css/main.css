@@ -33,7 +33,7 @@ a:hover, a:active{
 }
 
 @media (min-width: 992px){
-    .info-box{
+    .home .info-box{
         height: 263px;
     }
     

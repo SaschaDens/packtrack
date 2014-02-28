@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
         "way/generators": "dev-master",
-        "iron-io/iron_mq": "dev-master"
+        "iron-io/iron_mq": "dev-master",
+        "dinesh/barcode": "dev-master"
 	},
     "require-dev": {
         "fzaninotto/faker": "dev-master",
