@@ -12,7 +12,7 @@
     {{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css') }}
     {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css') }}
     @yield('styles')
-    {{ HTML::style('assets/css/main.min.css?v=1') }}
+    {{ HTML::style('assets/css/main.css?v=1') }}
 </head>
 <body>
 

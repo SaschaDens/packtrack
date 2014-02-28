@@ -32,6 +32,14 @@ a:hover, a:active{
     }
 }
 
+@media (min-width: 992px){
+    .info-box{
+        height: 263px;
+    }
+    
+    
+}
+
 .navbar-packtrack {
     background: #fff;
     border-top: 4px solid #f4726d;

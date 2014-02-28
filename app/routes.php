@@ -1,4 +1,10 @@
 <?php
+//Queue's
+
+Route::post('queues', function(){
+    //php artisan queue:subscribe app http://packandtrack.be/queues
+    return Queue::marshal();
+});
 
 // Main Routes
 Route::get('/', 'HomeController@index');
