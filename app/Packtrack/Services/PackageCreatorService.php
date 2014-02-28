@@ -34,8 +34,6 @@ class PackageCreatorService {
 
             $this->mailer->sendBarcode($package);
 
-            dd($package->toJson());
-
             return true;
         }
 
