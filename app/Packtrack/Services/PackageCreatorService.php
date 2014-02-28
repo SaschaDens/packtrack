@@ -32,20 +32,11 @@ class PackageCreatorService {
             $package->description = $attributes['description'];
             $package->save();
 
-            //$this->mailer->sendBarcode($package);
+            $this->mailer->sendBarcode($package);
 
-            /*Package::create(array(
-                'user_id'       =>  Auth::user()->id,
-                'address'       =>  $attributes['address'],
-                'city'          =>  $attributes['city'],
-                'postal_code'   =>  $attributes['postal_code'],
-                'country'       =>  $attributes['country'],
-                'reciever_name' =>  $attributes['reciever_name'],
-                'reciever_mail' =>  $attributes['reciever_mail'],
-                'description'   =>  $attributes['description'],
-            ));//*/
+            dd($package->toJson());
 
-            return $package;
+            return true;
         }
 
         throw new ValidationException('Package validation failed', $this->validator->getErrors());

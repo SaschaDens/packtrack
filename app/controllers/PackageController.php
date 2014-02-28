@@ -1,17 +1,13 @@
 <?php
 use \Packtrack\Services\PackageCreatorService;
-use \Packtrack\Mailers\PackageMailer;
 
 class PackageController extends BaseController {
 
     protected $packageCreator;
-    protected $mailer;
-    function __construct(PackageCreatorService $packageCreator, PackageMailer $mailer)
+    function __construct(PackageCreatorService $packageCreator)
     {
         $this->beforeFilter('auth');
         $this->packageCreator = $packageCreator;
-
-        $this->mailer = $mailer;
     }
 
 	/**
@@ -47,10 +43,6 @@ class PackageController extends BaseController {
         try
         {
             $create = $this->packageCreator->make(Input::all());
-            if($create)
-            {
-                $this->mailer->sendBarcode($create);
-            }
         } catch(Packtrack\Exceptions\ValidationException $e)
         {
             return Redirect::back()->withInput()->withErrors($e->getErrors());

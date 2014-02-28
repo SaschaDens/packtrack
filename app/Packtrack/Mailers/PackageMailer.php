@@ -11,7 +11,6 @@ class PackageMailer extends Mailer{
         );
         $subject = "Your package is now trackable!";
 
-        //if(isset($package->reciever_mail)) return false;
         return $this->sendToMail($package->reciever_mail, $subject, $view, $data);
     }
 
@@ -19,11 +18,14 @@ class PackageMailer extends Mailer{
     {
         $view = 'emails.barcode';
         $data = array(
-            'package'    =>  $package
+            'tracking_code'    =>  $package->tracking_code
         );
         $subject = "Your barcode for your package.";
 
-        //(isset($package->reciever_mail)) return false;
-        return $this->sendToMail($package->user->email, $subject, $view, $data);
+        if(is_null($package->user->email))
+        {
+            return $this->sendToMail($package->user->email, $subject, $view, $data);
+        }
+        return false;
     }
 }

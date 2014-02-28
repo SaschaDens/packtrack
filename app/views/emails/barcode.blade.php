@@ -13,8 +13,8 @@
 </tr>
 <tr>
     <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
-        <img src="https://chart.googleapis.com/chart?cht=qr&chs=140x140&chl={{ $package->tracking_code }}" alt={{ $package->tracking_code }} />
-        <img src="http://www.barcodes4.me/barcode/c128a/{{ $package->tracking_code }}.png?width=250&height=100&istextdrawn=1" alt={{ $package->tracking_code }} />
+        <img src="https://chart.googleapis.com/chart?cht=qr&chs=140x140&chl={{ $tracking_code }}" alt={{ $tracking_code }} />
+        <img src="http://www.barcodes4.me/barcode/c128a/{{ $tracking_code }}.png?width=250&height=100&istextdrawn=1" alt={{ $tracking_code }} />
     </td>
 </tr>
 <tr>

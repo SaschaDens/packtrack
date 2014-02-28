@@ -17,7 +17,8 @@ abstract class Mailer {
     {
         Mail::queue($view, $data, function($message) use($email, $subject)
         {
-            $message->to($email)->subject($subject);
+            $message->to($email)
+                ->subject($subject);
         });
     }
 }
