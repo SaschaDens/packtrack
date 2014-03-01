@@ -2,19 +2,17 @@
 
 use Packtrack\Validators\PackageValidator;
 use Packtrack\Exceptions\ValidationException;
-use Packtrack\Mailers\PackageMailer;
 use Package;
 use Auth;
+use Event;
 
 class PackageCreatorService {
 
     protected $validator;
-    protected $mailer;
 
-    public function __construct(PackageValidator $validator, PackageMailer $mailer)
+    public function __construct(PackageValidator $validator)
     {
         $this->validator = $validator;
-        $this->mailer = $mailer;
     }
 
     public function make(array $attributes)
@@ -32,7 +30,8 @@ class PackageCreatorService {
             $package->description = $attributes['description'];
             $package->save();
 
-            $this->mailer->sendBarcode($package);
+            //$this->mailer->sendBarcode($package);
+            Event::fire('mail.barcode', $package);
 
             return true;
         }

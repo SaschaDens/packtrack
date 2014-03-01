@@ -22,10 +22,6 @@ class PackageMailer extends Mailer{
         );
         $subject = "Your barcode for your package.";
 
-        if(is_null($package->user->email))
-        {
-            return $this->sendToMail($package->user->email, $subject, $view, $data);
-        }
-        return false;
+        return $this->sendToMail($package->user->email, $subject, $view, $data);
     }
 }

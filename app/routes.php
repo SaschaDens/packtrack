@@ -39,3 +39,10 @@ Route::resource('cp/scan', 'PackagelogController', array('only' => array('index'
 Route::resource('cp/users', 'UserSupportController', array('only' => array('index', 'create', 'store')));
 Route::resource('cp/package', 'PackageSupportController', array('only' => array('index', 'store', 'show')));
 Route::get('cp', 'SupportController@index');
+
+Route::get('test', function(){
+    //Event::fire('mail.register', User::find(1));
+    //Event::fire('mail.barcode', Package::find(1));
+    //Event::fire('mail.tracking', Package::find(1));
+    return "Send";
+});

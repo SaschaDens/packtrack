@@ -67,6 +67,18 @@ App::down(function()
 	return Response::make("Be right back!", 503);
 });
 
+
+/*
+|--------------------------------------------------------------------------
+| Add Event Listeners
+|--------------------------------------------------------------------------
+|
+| MailEventHandler sends all kind of mails we use in our application
+|
+*/
+
+Event::subscribe('Packtrack\Handlers\MailEventHandler');
+
 /*
 |--------------------------------------------------------------------------
 | Require The Filters File

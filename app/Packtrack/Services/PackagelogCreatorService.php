@@ -5,16 +5,15 @@ use Packtrack\Exceptions\ValidationException;
 use Packtrack\Mailers\PackageMailer;
 use Packagelog;
 use Auth;
+use Event;
 
 class PackagelogCreatorService {
 
     protected $validator;
-    protected $mailer;
 
     public function __construct(PackagelogValidator $validator, PackageMailer $mailer)
     {
         $this->validator = $validator;
-        $this->mailer = $mailer;
     }
 
     public function make($package, array $attributes)
@@ -34,7 +33,8 @@ class PackagelogCreatorService {
 
             if($package->status_code == 0 and !is_null($package->reciever_mail))
             {
-                $this->mailer->trackingCode($package);
+                //$this->mailer->trackingCode($package);
+                Event::fire('mail.tracking', $package);
                 $package->status_code = 1;
                 $package->save();
             }
