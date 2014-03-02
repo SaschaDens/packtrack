@@ -9,6 +9,8 @@ class UsersController extends BaseController {
     protected $userCreator;
     public function __construct(UserMailer $mailer, UserCreatorService $userCreator)
     {
+        $this->beforeFilter('csrf', array('only' => array('store')));
+
         $this->mailer = $mailer;
         $this->userCreator = $userCreator;
     }

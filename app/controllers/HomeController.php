@@ -9,6 +9,8 @@ class HomeController extends BaseController {
     protected $trackingSearch;
     public function __construct(ContactCreatorService $contactCreator, TrackingSearcherService $trackingSearch)
     {
+        $this->beforeFilter('csrf', array('only' => array('postTracking', 'postContact')));
+
         $this->contactCreator = $contactCreator;
         $this->trackingSearch = $trackingSearch;
     }
